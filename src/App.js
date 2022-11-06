@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./layouts/Layout";
 import NotFound from "./pages/NotFound"
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/*" element={<NotFound />} /> 
+        <Route path="/SignUp" element={<SignUp />} /> 
       </Routes>
     </Layout>
   );
