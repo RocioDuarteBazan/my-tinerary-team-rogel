@@ -1,0 +1,10 @@
+.error{
+    padding-top: 230px;
+    height: 700px;
+    width: 700px;
+}
+
+.div-error{
+    display: flex;
+    justify-content: center;
+}
