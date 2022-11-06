@@ -1,10 +1,12 @@
 .error{
-    padding-top: 230px;
-    height: 700px;
-    width: 700px;
+    height: 929px;
+    width: 65%;
+    flex-grow: 1;
 }
 
 .div-error{
     display: flex;
+    align-items: center;
     justify-content: center;
+    background-color: #ffecb3;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import "./Carrousel.css";
 
 export default function Carousel() {
@@ -19,7 +19,7 @@ export default function Carousel() {
   useEffect(() => {
     let idInterval = setInterval(
       () => {
-          next();
+        next();
       },
       5000
     );
@@ -36,70 +36,70 @@ export default function Carousel() {
     fetch("./hotels.json")
       .then(res => res.json())
       .then(res => setHotels(res))
-  },[])
+  }, [])
 
 
-  setImgCities = cities.map((img, index) => {
+  setImgCities = cities.filter((img, index) => {
     if (imgCities.length < 4) {
       imgCities.push(img.photo)
-    }
+  }
   })
 
-  setImgHotels = hotels.map((img, index) => {
-    if (imgHotels.length < 4) {
-      imgHotels.push(img.photo[0])
-    }
-  })
-
-  setImgPlus = hotels.map((img, index) => {
-    if (imgPlus.length < 4) {
-      imgPlus.push(img.photo[1])
-    }
-  })
-
-  if (imgTotal.length < 3) {
-    setImgTotal = imgTotal.push(imgCities, imgHotels, imgPlus)
+setImgHotels = hotels.filter((img, index) => {
+  if (imgHotels.length < 4) {
+    imgHotels.push(img.photo[0])
   }
+})
 
-  let next = () => {
-    if (numeroAcambiar < imgTotal.length - 1) {
-      setNumeroAcambiar(numeroAcambiar + 1)
-    }
-    else {
-      setNumeroAcambiar(0)
-    }
-    clearInterval(id);
+setImgPlus = hotels.filter((img, index) => {
+  if (imgPlus.length < 4) {
+    imgPlus.push(img.photo[1])
   }
+})
 
-  let back = () => {
-    if (numeroAcambiar > 0) {
-      setNumeroAcambiar(numeroAcambiar -1)
-    }
-    else {
-      setNumeroAcambiar(imgTotal.length -1)
-    }
-    clearInterval(id);
+if (imgTotal.length < 3) {
+  setImgTotal = imgTotal.push(imgCities, imgHotels, imgPlus)
+}
+
+let next = () => {
+  if (numeroAcambiar < imgTotal.length - 1) {
+    setNumeroAcambiar(numeroAcambiar + 1)
   }
-  return (
-    <>
-      <div className='container'>
-        <div className='button-div'>
-          <button onClick={back} className="button-carrousel"> ◄ </button>
-        </div>
-        <div className='container-img-carrousel'>
+  else {
+    setNumeroAcambiar(0)
+  }
+  clearInterval(id);
+}
+
+let back = () => {
+  if (numeroAcambiar > 0) {
+    setNumeroAcambiar(numeroAcambiar - 1)
+  }
+  else {
+    setNumeroAcambiar(imgTotal.length - 1)
+  }
+  clearInterval(id);
+}
+return (
+  <>
+    <div className='container'>
+      <div className='button-div'>
+        <button onClick={back} className="button-carrousel"> ◄ </button>
+      </div>
+      <div className='container-img-carrousel'>
         {
-          imgTotal[numeroAcambiar].map(img => {
+          imgTotal[numeroAcambiar].map((img , index)  => {
             return (
-              <img src={img} alt="foto" className='img-carrousel' />
+              <img src={img} alt="foto" className='img-carrousel' key={index}/>
             )
           })
         }
-        </div>
-        <div className='button-div'>
-          <button onClick={next} className='button-carrousel'> ► </button>
-       </div>
       </div>
-    </>
-  )
+      <div className='button-div'>
+        <button onClick={next} className='button-carrousel'> ► </button>
+      </div>
+    </div>
+  </>
+)
 }
 

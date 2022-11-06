@@ -9,6 +9,6 @@ export default function ScrolltoTop() {
         })
     }
   return (
-    <div onClick={scrolltoTop} className='button-scroll'><div class="arrow-up"></div></div>
+    <div onClick={scrolltoTop} className='button-scroll'><div className="arrow-up"></div></div>
   )
 }

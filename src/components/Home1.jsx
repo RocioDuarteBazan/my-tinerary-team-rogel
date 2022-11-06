@@ -1,6 +1,4 @@
 import React from 'react'
-import AutoToTop from './AutoToTop'
-import Header from './Header'
 import CallToAction from './CallToAction';
 
 
