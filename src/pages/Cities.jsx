@@ -33,7 +33,7 @@ export default function Cities() {
     }
 
     function filterCheck(){
-        let checks = []
+        let checks = [] 
         continentes.filter((continente) => continente.current?.checked).map((continente) => checks.push(continente.current.value))
         let ciudadesFiltradas = ciudades.filter((ciudad) => checks.includes(ciudad.continent))
         console.log(ciudadesFiltradas)
@@ -68,7 +68,7 @@ export default function Cities() {
 
             <div className='flex wrap'>
                 {ciudadesFiltradas.map((city, index) => {
-                    return <CityCards city={city} />
+                    return <CityCards city={city} key={index} />
                 })}
             </div>
         </div>

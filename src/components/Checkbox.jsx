@@ -9,7 +9,7 @@ export default function Checkbox(props) {
     return (
         <label className='container'>
             <input type="checkbox" name={continent} id={key} ref={refId} value={valor} onClick={fx}/>
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
             {continent}
         </label>
     )

@@ -5,27 +5,27 @@ import ButtonSubmit from '../components/ButtonSubmit';
 import { useRef } from 'react'
 
 
-export default function NewCity() {
+export default function NewHotel() {
 
 
     const form = useRef()
     const name = useRef()
-    const continent = useRef()
+    const city = useRef()
     const photo = useRef()
-    const population = useRef()
-    const newCity = []
+    const capacity = useRef()
+    const newHotel = []
 
 
     const sendForm = () => {
-        newCity.push(
+        newHotel.push(
             {
                 name: name.current.value,
-                continent: continent.current.value,
+                city: city.current.value,
                 photo: photo.current.value,
-                population: population.current.value,
+                capacity: capacity.current.value,
             }
         )
-        localStorage.setItem('newCity', JSON.stringify(newCity))
+        localStorage.setItem('newHotel', JSON.stringify(newHotel))
     }
 
 
@@ -36,7 +36,7 @@ export default function NewCity() {
                     <article>
                         <div className="inner">
                             <div>
-                                <img id="logoAccess" src="./img/new-city-logo.png" alt="logo_newCity" />
+                                <img id="logoAccess" src="./img/new-hotel-logo.png" alt="logo_newHotel" />
                             </div>
                             <h1>¡Welcome!</h1>
                         </div>
@@ -46,8 +46,8 @@ export default function NewCity() {
                             <h2>Create New City</h2>
                             <form action="" method="get" ref={form}>
                                 <InputSignUp type='text' placeholder='name' refId={name} />
-                                <InputSignUp type='text' placeholder='continent' refId={continent} />
-                                <InputSignUp type='text' placeholder='population' refId={population} />
+                                <InputSignUp type='text' placeholder='city' refId={city} />
+                                <InputSignUp type='text' placeholder='capacity' refId={capacity} />
                                 <InputSignUp type='text' placeholder='photo' refId={photo} />
                                 <ButtonSubmit type='submit' text='Create' fx={sendForm} />
                             </form>
