@@ -11,20 +11,20 @@ export default function SignUp() {
     const form = useRef()
     const userName = useRef()
     const password = useRef()
-    const newUser = []
+    const user = []
 
 
     const enviarFormulario = () => {
 
 
-        newUser.push(
+        user.push(
             {
-                Username: userName.current.value,
+                user: user.current.value,
                 password: password.current.value,
             }
         )
 
-        localStorage.setItem('newUser', JSON.stringify(newUser))
+        localStorage.setItem('user', JSON.stringify(user))
     }
 
 
@@ -53,7 +53,7 @@ export default function SignUp() {
                             </nav>
                             <p>or sign in with your username</p>
                             <form action="" method="get" ref={form}>
-                                <InputSignUp type='text' placeholder='Username or email' refId={userName} />
+                                <InputSignUp type='text' placeholder='Username or email' refId={user} />
                                 <InputSignUp type='password' placeholder='Password' refId={password} />
                                 <ButtonSubmit type='submit' text='Login' fx={enviarFormulario} />
                             </form>

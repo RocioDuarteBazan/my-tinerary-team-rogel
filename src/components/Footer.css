@@ -19,6 +19,17 @@ footer .content p,a{
     color: #ffffffb0;
 }
 
+.email, .phone{
+    text-align: center;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
 footer .content .box{
     width: 33%;
     transition: all 0.4s ease;
@@ -29,12 +40,13 @@ footer .content .topic{
     font-weight: 600;
     color:#ffe26a;
     margin-bottom: 16px;
-  
+    text-align: center;
 }
   
 footer .content p{
     text-align: justify;
 }
+
 
 footer .content .lower .topic{
     margin: 24px 0 5px 0;
@@ -45,8 +57,9 @@ footer .content .lower i{
 }
   
 footer .content .middle{
-    padding-left: 100px;
-    padding-top: 70px;
+    padding-top: 70px; 
+    display: flex;
+    justify-content: center;
 }
   
 footer .content .middle a{
@@ -106,6 +119,11 @@ footer .content .media-icons a{
   
 .content .media-icons a:hover{
     border-color: #ffe26a;
+}
+
+.media-icons{
+    display: flex;
+    justify-content: space-evenly;
 }
   
 footer .bottom{
