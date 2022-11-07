@@ -82,9 +82,9 @@ let back = () => {
 }
 return (
   <>
-    <div className='container'>
+    <div className='container-carrousel'>
       <div className='button-div'>
-        <button onClick={back} className="button-carrousel"> ◄ </button>
+        <button onClick={back} className="button-carrousel"><img className='img-botton-carrousel' src="../img/botton-back.png" alt="" srcset="" /></button>
       </div>
       <div className='container-img-carrousel'>
         {
@@ -96,10 +96,9 @@ return (
         }
       </div>
       <div className='button-div'>
-        <button onClick={next} className='button-carrousel'> ► </button>
+        <button onClick={next} className='button-carrousel'> <img className='img-botton-carrousel' src="../img/botton-next.png" alt="" srcset="" /></button>
       </div>
     </div>
   </>
 )
 }
-

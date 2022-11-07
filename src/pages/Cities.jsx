@@ -58,7 +58,7 @@ export default function Cities() {
     }
 
     return (
-        <div className='m-t-11 flex column justify-center align-center'>
+        <div className='m-t-3 flex column justify-center align-center'>
             <div id='container-check' className='flex justify-around w-100 '  >
                 <div className='flex justify-around w-70 gap-4 wrap'>
                     {checkCiudades.map((continente, index) => {
