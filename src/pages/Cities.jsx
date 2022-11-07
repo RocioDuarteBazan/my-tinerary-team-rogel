@@ -20,10 +20,6 @@ export default function Cities() {
         fetch('../citys.json')
             .then(response => response.json())
             .then(response => setCiudades(response))
-
-            fetch('../citys.json')
-            .then(response => response.json())
-            .then(response => setCiudadesFiltradas(response))
     }, [])
 
     let checkCiudades = [...new Set(ciudades.map((ciudad) => ciudad.continent))]

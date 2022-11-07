@@ -15,18 +15,14 @@ export default function SignUp() {
 
 
     const enviarFormulario = () => {
-
-
         user.push(
             {
                 user: user.current.value,
                 password: password.current.value,
             }
         )
-
         localStorage.setItem('user', JSON.stringify(user))
     }
-
 
 
     return (
