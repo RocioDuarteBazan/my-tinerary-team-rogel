@@ -1,0 +1,46 @@
+.cardEvents {
+    display: flex;
+}
+  
+.cardDetPadre {
+    display: flex;
+    height: 30rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+  
+.cardDet {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 20rem;
+    width: 70rem;
+    color: #1d2527;
+    background-color: #ffffff;
+    border-radius: 0px 40px 0px 40px;
+    box-shadow: 0 5px 10px rgb(0, 138, 96);
+}
+  
+.contimg {
+    height: 100%;
+    width: 50%;
+    object-fit: contain;
+}
+
+.contimg > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 0px 0px 0px 20px;
+}
+  
+.cardinfo {
+    gap: 15px;
+    display: flex;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

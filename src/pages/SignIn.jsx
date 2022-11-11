@@ -6,18 +6,17 @@ import { useRef } from 'react'
 import { Link as NavLink } from 'react-router-dom'
 
 
-export default function SignUp() {
+export default function SignIn() {
 
     const form = useRef()
-    const userName = useRef()
+    const email = useRef()
     const password = useRef()
-    const user = []
 
 
     const enviarFormulario = () => {
-        user.push(
+        let user = (
             {
-                user: user.current.value,
+                email: email.current.value,
                 password: password.current.value,
             }
         )
@@ -47,9 +46,9 @@ export default function SignUp() {
                             <nav id="socialLogin">
                                 <a href="" className="google"></a>
                             </nav>
-                            <p>or sign in with your username</p>
+                            <p>or sign in with your email</p>
                             <form action="" method="get" ref={form}>
-                                <InputSignUp type='text' placeholder='Username or email' refId={user} />
+                                <InputSignUp type='email' placeholder='Email' refId={email} />
                                 <InputSignUp type='password' placeholder='Password' refId={password} />
                                 <ButtonSubmit type='submit' text='Login' fx={enviarFormulario} />
                             </form>

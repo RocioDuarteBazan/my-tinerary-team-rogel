@@ -13,6 +13,8 @@ export default function NewHotel() {
     const city = useRef()
     const photo = useRef()
     const capacity = useRef()
+    const cityId= useRef()
+    const userId = useRef()
     const newHotel = []
 
 
@@ -23,6 +25,8 @@ export default function NewHotel() {
                 city: city.current.value,
                 photo: photo.current.value,
                 capacity: capacity.current.value,
+                cityId: cityId.current.value,
+                userId: userId.current.value,
             }
         )
         localStorage.setItem('newHotel', JSON.stringify(newHotel))
@@ -49,6 +53,8 @@ export default function NewHotel() {
                                 <InputSignUp type='text' placeholder='city' refId={city} />
                                 <InputSignUp type='text' placeholder='capacity' refId={capacity} />
                                 <InputSignUp type='text' placeholder='photo' refId={photo} />
+                                <InputSignUp type='text' placeholder='cityId' refId={cityId} />
+                                <InputSignUp type='text' placeholder='userId' refId={userId} />
                                 <ButtonSubmit type='submit' text='Create' fx={sendForm} />
                             </form>
                         </div>

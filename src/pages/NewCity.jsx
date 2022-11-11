@@ -13,6 +13,7 @@ export default function NewCity() {
     const continent = useRef()
     const photo = useRef()
     const population = useRef()
+    const userId = useRef()
     const newCity = []
 
 
@@ -23,6 +24,7 @@ export default function NewCity() {
                 continent: continent.current.value,
                 photo: photo.current.value,
                 population: population.current.value,
+                userId: userId.current.value,
             }
         )
         localStorage.setItem('newCity', JSON.stringify(newCity))
@@ -49,6 +51,7 @@ export default function NewCity() {
                                 <InputSignUp type='text' placeholder='continent' refId={continent} />
                                 <InputSignUp type='text' placeholder='population' refId={population} />
                                 <InputSignUp type='text' placeholder='photo' refId={photo} />
+                                <InputSignUp type='text' placeholder='userId' refId={userId} />
                                 <ButtonSubmit type='submit' text='Create' fx={sendForm} />
                             </form>
                         </div>

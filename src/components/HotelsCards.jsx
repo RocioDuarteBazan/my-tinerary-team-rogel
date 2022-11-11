@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as LinkRouter} from 'react-router-dom'
 
 
 export default function HotelsCards(props) {
@@ -13,7 +14,7 @@ export default function HotelsCards(props) {
                     <h2 className="title">{hotels.name}</h2>
                     <span className="caption">{hotels.capacity}</span>
                     <div>
-                        <a className='bottom-cards' href="#">Discover</a>
+                    <LinkRouter className='bottom-cards' to={`/hotels/${hotels.id}`}>Discover</LinkRouter>
                     </div>
                 </div>
             </div>

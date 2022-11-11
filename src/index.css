@@ -1098,3 +1098,41 @@ code {
 .call-card:hover {
   background-color: #17788d;
 }
+
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.card-text {
+  font-size: 1.5rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-header {
+  padding: 1rem;
+}
+
+.card-footer {
+  padding: 1rem;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+}
