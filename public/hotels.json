@@ -9,7 +9,7 @@
         ],
         "capacity": 1855,
         "cityId": "city2",
-        "userId": "adm1"
+        "admiId": "adm1"
     },
     {
         "id": "ho2",
@@ -20,7 +20,7 @@
     ], 
         "capacity": 3900,
         "cityId": "city6",
-        "userId": "adm2"
+        "admiId": "adm2"
     },
     {
         "id": "ho3",
@@ -31,7 +31,7 @@
         ], 
         "capacity": 1200,
         "cityId": "city8",
-        "userId": "adm3"
+        "admiId": "adm3"
     },
     {
         "id": "ho4",
@@ -43,7 +43,7 @@
         ], 
         "capacity": 800,
         "cityId": "city12",
-        "userId": "adm4"
+        "admiId": "adm4"
     },
     {
         "id": "ho5",
@@ -55,7 +55,7 @@
         ], 
         "capacity": 700,
         "cityId": "city9",
-        "userId": "adm1"
+        "admiId": "adm1"
     },
     {
         "id": "ho6",
@@ -67,18 +67,19 @@
         ], 
         "capacity": 2000,
         "cityId": "city10",
-        "userId": "adm2"
+        "admiId": "adm2"
     },
     {
         "id": "ho7",
         "name": "New York-New York Hotel & Casino ",
         "photo": [
             "https://www.kayak.com.ar/rimg/himg/73/ef/af/leonardo-2723999-NY_Exterior_O-284257.jpg?width=1366&height=768&crop=true", 
-            "https://a.cdn-hotels.com/gdcs/production21/d553/f598455d-3c17-4077-bcdf-2e2745a6d229.jpg", "https://www.kayak.com.ar/rimg/himg/64/f5/cf/leonardo-1051150-NYNY_Spa_Suite_O-556878.jpg?width=720&height=576&crop=true"
+            "https://a.cdn-hotels.com/gdcs/production21/d553/f598455d-3c17-4077-bcdf-2e2745a6d229.jpg", 
+            "https://www.kayak.com.ar/rimg/himg/64/f5/cf/leonardo-1051150-NYNY_Spa_Suite_O-556878.jpg?width=720&height=576&crop=true"
         ], 
         "capacity": 2024,
         "cityId": "city1",
-        "userId": "adm3"
+        "admiId": "adm3"
     },
     {
         "id": "ho8",
@@ -89,7 +90,7 @@
             "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/b1/03/89/hilton-tokyo.jpg?w=700&h=-1&s=1"],
         "capacity": 1300,
         "cityId": "city3",
-        "userId": "adm4"
+        "admiId": "adm4"
     },
     {
         "id": "ho9",
@@ -100,7 +101,7 @@
         ], 
         "capacity": 800,
         "cityId": "city5",
-        "userId": "adm1"
+        "admiId": "adm1"
     },
     {
         "id": "ho10",
@@ -112,7 +113,7 @@
         ], 
         "capacity": 1500,
         "cityId": "city11",
-        "userId": "adm2"
+        "admiId": "adm2"
     },
     {
         "id": "ho11",
@@ -124,7 +125,7 @@
         ], 
         "capacity": 2000,
         "cityId": "city4",
-        "userId": "adm3"
+        "admiId": "adm3"
     },
     {
         "id": "ho12",
@@ -136,6 +137,6 @@
         ], 
         "capacity": 800,
         "cityId": "city7",
-        "userId": "adm4"
+        "admiId": "adm4"
     }
 ]

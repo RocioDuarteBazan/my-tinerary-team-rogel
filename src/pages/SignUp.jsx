@@ -13,15 +13,11 @@ export default function SignUp() {
     const fullName = useRef()
     const email = useRef()
     const password = useRef()
-    const newUser = []
-
-
-
-
+    
     const enviarFormulario = () => {
 
 
-        newUser.push(
+        let newUser= (
             {
                 fullName: fullName.current.value,
                 email: email.current.value,
@@ -32,7 +28,6 @@ export default function SignUp() {
 
         localStorage.setItem('newUser', JSON.stringify(newUser))
     }
-
 
 
     return (

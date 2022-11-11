@@ -5,7 +5,7 @@
         "continent": "America",
         "photo": "https://imageshack.com/i/pmk1kK0tj",
         "population": 8.468,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city2",
@@ -13,7 +13,7 @@
         "continent": "Asia",
         "photo": "http://assets.kompasiana.com/items/album/2022/01/28/screenshot-20220128-141908-61f3fed506310e1ed066e052.jpg",
         "population": 5.841,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city3",
@@ -21,7 +21,7 @@
         "continent": "Asia",
         "photo": "https://imageshack.com/i/pmufBwV3j",
         "population": 13.96000,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city4",
@@ -29,7 +29,7 @@
         "continent": "America",
         "photo": "https://imageshack.com/i/pmKjuo0Fj",
         "population": 888.797,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city5",
@@ -37,14 +37,14 @@
         "continent": "America",
         "photo": "https://imageshack.com/i/pmbuYKo8j",
         "population": 146.000 ,
-        "userId": "admin1"
+        "admiId": "admin1"
     },    {
         "id": "city6",
         "name": "Singapur",
         "continent": "Asia",
         "photo": "https://byevisawp-fe6d.kxcdn.com/wp-content/uploads/2021/11/inmigracion-singapur-thegem-blog-timeline-large.jpeg",
         "population": 5.454000 ,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city7",
@@ -52,7 +52,7 @@
         "continent": "Europe",
         "photo": "https://us.123rf.com/450wm/elenaphotos21/elenaphotos212003/elenaphotos21200300036/144352859-bfm-torre-de-la-catedral-y-el-r%C3%ADo-r%C3%B3dano-ginebra-suiza-hdr.jpg?ver=6",
         "population": 915.000,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city8",
@@ -60,7 +60,7 @@
         "continent": "Asia",
         "photo": "https://imageio.forbes.com/specials-images/imageserve/675172642/pura-ulun-danu-bratan-temple-in-Bali-/960x0.jpg?format=jpg&width=960",
         "population": 4.362000,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city9",
@@ -68,7 +68,7 @@
         "continent": "Asia",
         "photo": "https://upload.wikimedia.org/wikipedia/commons/3/33/Balloon_over_Bagan.jpg",
         "population": 22.000,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city10",
@@ -76,7 +76,7 @@
         "continent": "Europe",
         "photo": "https://media.cntraveler.com/photos/59e7addbcae8da16e6cd4af4/16:9/w_2560%2Cc_limit/Amsterdam_GettyImages-541441577.jpg",
         "population": 17.193499,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city11",
@@ -84,7 +84,7 @@
         "continent": "America",
         "photo": "https://imageshack.com/i/pnp5nrJsj",
         "population": 724.010,
-        "userId": "admin1"
+        "admiId": "admin1"
     },
     {
         "id": "city12",
@@ -92,6 +92,6 @@
         "continent": "Oceania",
         "photo": "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
         "populatio": 1.201300,
-        "userId": "admin1"
+        "admiId": "admin1"
     }
 ]
