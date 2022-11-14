@@ -1,0 +1,11 @@
+.error{
+    height: 929px;
+    width: 65%;
+    flex-grow: 1;
+}
+
+.div-error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

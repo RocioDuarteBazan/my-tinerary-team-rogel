@@ -1,0 +1,46 @@
+[
+  {
+    "id": "user1",
+    "name": "Rocio",
+    "lastName": "Duarte",
+    "age": 25,
+    "email": "rocioduarte197@gmail.com",
+    "password": "Hola1234",
+    "code": "asd54561dasd",
+    "verified": true,
+    "logged": true
+  },
+  {
+    "id": "user2",
+    "name": "Mauro",
+    "lastName": "Harretche",
+    "age": 30,
+    "email": "mauroharretche@gmail.com",
+    "password": "Hola1234",
+    "code": "asd54561dasd",
+    "verified": true,
+    "logged": true
+  },
+  {
+    "id": "user2",
+    "name": "Ignacio",
+    "lastName": "Borraz",
+    "age": 32,
+    "email": "ignacioborraz@hotmail.com",
+    "password": "Hola1234",
+    "code": "asd54561dasd",
+    "verified": true,
+    "logged": true
+  },
+  {
+    "id": "user2",
+    "name": "Mirta",
+    "lastName": "Bazan",
+    "age": 58,
+    "email": "mirtab12@gmail.com",
+    "password": "Hola1234",
+    "code": "asd54561dasd",
+    "verified": true,
+    "logged": true
+  }
+]

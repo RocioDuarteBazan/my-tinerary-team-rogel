@@ -1,0 +1,47 @@
+.divShow {
+    display: flex;
+    height: 30rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+  
+.mainShow {
+    display: flex;
+    flex-wrap: wrap;
+    height: 25rem;
+    width: 38rem;
+    color: #313636;
+    background-color: #ffffff;
+    border-radius: 0px 40px 0px 40px;
+    box-shadow: 0 5px 10px rgb(0, 138, 96);
+}
+  
+.imgshow {
+    height: 50%;
+    width: 100%;
+}
+
+.imgshow > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 0px 20px 0px 0px;
+    object-fit: cover;
+}
+  
+.divInfo {
+    gap:5px;   
+    height: auto;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h1 {
+    font-size: larger;
+}
