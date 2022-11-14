@@ -2,6 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import CardItinerary from "./CardItinerary";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { baseURL } from '../url';
+
 
 export default function Itinerary() {
   let { id } = useParams();
@@ -9,9 +12,8 @@ export default function Itinerary() {
   let [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    fetch("/touristact.json")
-      .then((res) => res.json())
-      .then((res) => setActivities(res.filter((e) => e.citiId === id)));
+    axios.get(`${baseURL}api/itineraries?citiId=${id}`)
+      .then((res) => setActivities(res.data.data));
     // eslint-disable-next-line
   }, []);
   console.log(activities);

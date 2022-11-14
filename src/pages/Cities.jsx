@@ -72,7 +72,7 @@ export default function Cities() {
 
             <div className='flex wrap'>
                 {ciudadesFiltradas.map((city, index) => {
-                    return <CityCards city={city} key={index} />
+                    return <CityCards city={city} key={index} id={city._id} />
                 })}
             </div>
         </div>

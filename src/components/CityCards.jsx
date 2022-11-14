@@ -3,7 +3,7 @@ import './CityCards.css'
 import { Link as LinkRouter} from 'react-router-dom'
 
 export default function CityCard(props) {
-    let { city } = props
+    let { city, id } = props
 
     return (
         <div className='container-card'>
@@ -15,7 +15,7 @@ export default function CityCard(props) {
                     <h2 className="title">{city.name}</h2>
                     <span className="caption">{city.continent}</span>
                     <div>
-                        <LinkRouter className='bottom-cards' to={`/cities/${city.id}`}>Discover</LinkRouter>
+                        <LinkRouter className='bottom-cards' to={`/cities/${id}`}>Discover</LinkRouter>
                     </div>
                 </div>
             </div>
