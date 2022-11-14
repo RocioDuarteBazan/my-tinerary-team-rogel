@@ -3,6 +3,9 @@ import './SignUp.css';
 import InputSignUp from '../components/InputSignUp';
 import ButtonSubmit from '../components/ButtonSubmit';
 import { useRef } from 'react'
+import axios from "axios";
+import { baseURL } from '../url';
+
 
 
 export default function NewHotel() {
@@ -10,26 +13,21 @@ export default function NewHotel() {
 
     const form = useRef()
     const name = useRef()
-    const city = useRef()
     const photo = useRef()
     const capacity = useRef()
     const cityId= useRef()
     const userId = useRef()
-    const newHotel = []
-
 
     const sendForm = () => {
-        newHotel.push(
+        axios.post(`${baseURL}api/hotels`,
             {
                 name: name.current.value,
-                city: city.current.value,
                 photo: photo.current.value,
                 capacity: capacity.current.value,
-                cityId: cityId.current.value,
-                userId: userId.current.value,
+                cityId: "636e9b1f37a6690656b36ec4",
+                userId: "636e67769d2ec6759994acc2",
             }
         )
-        localStorage.setItem('newHotel', JSON.stringify(newHotel))
     }
 
 
@@ -50,11 +48,8 @@ export default function NewHotel() {
                             <h2>Create New City</h2>
                             <form action="" method="get" ref={form}>
                                 <InputSignUp type='text' placeholder='name' refId={name} />
-                                <InputSignUp type='text' placeholder='city' refId={city} />
                                 <InputSignUp type='text' placeholder='capacity' refId={capacity} />
                                 <InputSignUp type='text' placeholder='photo' refId={photo} />
-                                <InputSignUp type='text' placeholder='cityId' refId={cityId} />
-                                <InputSignUp type='text' placeholder='userId' refId={userId} />
                                 <ButtonSubmit type='submit' text='Create' fx={sendForm} />
                             </form>
                         </div>
