@@ -3,6 +3,8 @@ import Checkbox from '../components/Checkbox';
 import CityCards from '../components/CityCards';
 import '../components/Checkbox.css';
 import '../components/SearchCss.css';
+import axios from "axios";
+import { baseURL } from '../url';
 
 export default function Cities() {
 
@@ -17,9 +19,11 @@ export default function Cities() {
     const continentes = [ America, Europe, Asia, Oceania ]
 
     useEffect(() => {
-        fetch('../citys.json')
-            .then(response => response.json())
-            .then(response => setCiudades(response))
+        axios.get(`${baseURL}api/cities`)
+            .then(response => setCiudades(response.data.data))
+
+        axios.get(`${baseURL}api/cities`)
+            .then(response => setCiudadesFiltradas(response.data.data))
     }, [])
 
     let checkCiudades = [...new Set(ciudades.map((ciudad) => ciudad.continent))]
