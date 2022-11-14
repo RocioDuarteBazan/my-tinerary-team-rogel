@@ -3,33 +3,29 @@ import './SignUp.css';
 import InputSignUp from '../components/InputSignUp';
 import ButtonSubmit from '../components/ButtonSubmit';
 import { useRef } from 'react'
+import axios from "axios";
+import { baseURL } from '../url';
 
 
 export default function NewCity() {
-
 
     const form = useRef()
     const name = useRef()
     const continent = useRef()
     const photo = useRef()
     const population = useRef()
-    const userId = useRef()
-    const newCity = []
-
 
     const sendForm = () => {
-        newCity.push(
+        axios.post(`${baseURL}api/cities`,
             {
                 name: name.current.value,
                 continent: continent.current.value,
                 photo: photo.current.value,
                 population: population.current.value,
-                userId: userId.current.value,
+                userId: "636e67769d2ec6759994acc1"
             }
         )
-        localStorage.setItem('newCity', JSON.stringify(newCity))
     }
-
 
     return (
         <body className="body-form">
@@ -51,7 +47,6 @@ export default function NewCity() {
                                 <InputSignUp type='text' placeholder='continent' refId={continent} />
                                 <InputSignUp type='text' placeholder='population' refId={population} />
                                 <InputSignUp type='text' placeholder='photo' refId={photo} />
-                                <InputSignUp type='text' placeholder='userId' refId={userId} />
                                 <ButtonSubmit type='submit' text='Create' fx={sendForm} />
                             </form>
                         </div>
