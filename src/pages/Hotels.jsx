@@ -71,7 +71,7 @@ export default function Hotels() {
 
                 {hotelsFiltered.length > 0 ? (
                     hotelsFiltered.map((hotels, index) => {
-                        return <HotelsCards hotels={hotels} key={index} />
+                        return <HotelsCards hotels={hotels} key={index} id={hotels._id}/>
                     }))
                     : (
                         <NotFound />

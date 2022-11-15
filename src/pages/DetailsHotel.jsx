@@ -11,9 +11,9 @@ export default function DetailsHotel(props) {
       <div className="cardDetPadre">
         <div className="cardDet">
           <div className="contimg">
-            <img src={img} alt="foto" />
+            <img src={img} alt={name} />
           </div>
-          <div class="cardinfo">
+          <div className="cardinfo">
             <h1>{name}</h1>
             <h2>Capacity: {capacity}</h2>
           </div>
