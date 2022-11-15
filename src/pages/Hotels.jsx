@@ -3,6 +3,8 @@ import SearchHotels from '../components/SearchHotels'
 import HotelsCards from '../components/HotelsCards'
 import '../components/SearchCss.css';
 import NotFound from "./NotFound"
+import axios from 'axios';
+import { baseURL } from '../url';
 
 
 export default function Hotels() {
@@ -13,16 +15,14 @@ export default function Hotels() {
     const selectId = useRef()
 
     useEffect(() => {
-        fetch('../hotels.json')
-            .then(response => response.json())
-            .then(response => setHotels(response))
+        axios.get(`${baseURL}api/hotels`)
+            .then(response => setHotels(response.data.data))
 
-        fetch('../hotels.json')
-            .then(response => response.json())
-            .then(response => setHotelsFiltered(response))
+        axios.get(`${baseURL}api/hotels`)
+            .then(response => setHotelsFiltered(response.data.data))
     }, [])
 
-   
+
     function filterCheckCards() {
 
         let orderFiltered = sortHotels()
@@ -36,7 +36,7 @@ export default function Hotels() {
     function sortHotels() {
         let hotelsSorted
         let order = selectId.current.value
-        if(order !== 'default'){
+        if (order !== 'default') {
             if (order === 'low') {
                 hotelsSorted = hotels.sort((a, b) => a.capacity - b.capacity).map((hotel) => hotel)
             } else if (order === 'high') {
@@ -64,7 +64,7 @@ export default function Hotels() {
                 <label>
                     <input className="search-input w-100 input" type="search" name="search" id="search" placeholder="Search" ref={searchId} onChange={filterCheckCards} />
                 </label>
-                <SearchHotels fx={filterCheckCards} selectId={selectId}/>
+                <SearchHotels fx={filterCheckCards} selectId={selectId} />
             </form>
 
             <div className="cards-container container-fluid w-90 flex wrap gap-2 justify-center align-center">
@@ -74,7 +74,7 @@ export default function Hotels() {
                         return <HotelsCards hotels={hotels} key={index} />
                     }))
                     : (
-                        <NotFound/>
+                        <NotFound />
                     )}
             </div>
         </div>
