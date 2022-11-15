@@ -3,7 +3,7 @@ import { Link as LinkRouter} from 'react-router-dom'
 
 
 export default function HotelsCards(props) {
-    let {hotels} = props
+    let {hotels, id} = props
     return (
         <div className='container-card'>
             <div className="card">
@@ -14,7 +14,7 @@ export default function HotelsCards(props) {
                     <h2 className="title">{hotels.name}</h2>
                     <span className="caption">{hotels.capacity}</span>
                     <div>
-                    <LinkRouter className='bottom-cards' to={`/hotels/${hotels.id}`}>Discover</LinkRouter>
+                    <LinkRouter className='bottom-cards' to={`/hotels/${id}`}>Discover</LinkRouter>
                     </div>
                 </div>
             </div>
