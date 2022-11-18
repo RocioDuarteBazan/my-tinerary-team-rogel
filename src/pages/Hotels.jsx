@@ -11,20 +11,20 @@ export default function Hotel() {
     let [hotels, setHotels] = useState([]);
     const searchId = useRef();
     const selectId = useRef();
-  
+
     useEffect(() => {
-      axios.get(`${baseURL}api/hotels`)
-        .then((response) => setHotels(response.data.data));
+        axios.get(`${baseURL}api/hotels`)
+            .then((response) => setHotels(response.data.data));
     }, []);
     let filterHotels = () => {
-      if (selectId.current.value !== "asc" && selectId.current.value !== "desc") {
-        axios.get(`${baseURL}api/hotels?name=${searchId.current.value}`)
-          .then((res) => setHotels(res.data.data));
-      } else {
+        if (selectId.current.value !== "asc" && selectId.current.value !== "desc") {
+            selectId.current.value = "asc";
+        }
         axios
-          .get(`${baseURL}api/hotels?order=${selectId.current.value}&name=${searchId.current.value}`)
-          .then((res) => setHotels(res.data.data));
-      }
+            .get(
+                `${baseURL}api/hotels?order=${selectId.current.value}&name=${searchId.current.value}`
+            )
+            .then((res) => setHotels(res.data.data));
     };
 
     return (
@@ -40,7 +40,7 @@ export default function Hotel() {
 
                 {hotels.length > 0 ? (
                     hotels.map((hotels, index) => {
-                        return <HotelsCards hotels={hotels} key={index} id={hotels._id}/>
+                        return <HotelsCards hotels={hotels} key={index} id={hotels._id} />
                     }))
                     : (
                         <NotFound />

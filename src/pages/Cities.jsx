@@ -25,23 +25,23 @@ export default function Cities() {
 
     let checkCiudades = [...new Set(ciudades.map((ciudad) => ciudad.continent))]
 
-    function filterCheck(check){
+    function filterCheck(check) {
         let checkArray = [];
-        if(check.target.checked){
+        if (check.target.checked) {
             checkArray = [...checkboxes, check.target.value]
-        }else{
+        } else {
             checkArray = checkboxes.filter((checkbox) => checkbox !== check.target.value)
         }
         setCheckboxes(checkArray)
         return checkArray;
     }
 
-    function filterSearch(cityFil){
+    function filterSearch(cityFil) {
         let check = filterCheck(cityFil)
-        let url = check.map( (continent) => `continent=${continent}`).join('&');
+        let url = check.map((continent) => `continent=${continent}`).join('&');
 
         axios.get(`${baseURL}api/cities?${url}&name=${searchId.current.value}`)
-        .then(response => setCiudadesFiltradas(response.data.data))
+            .then(response => setCiudadesFiltradas(response.data.data))
     }
 
     return (
@@ -49,7 +49,7 @@ export default function Cities() {
             <div id='container-check' className='flex justify-around w-100 '  >
                 <div className='flex justify-around w-70 gap-4 wrap'>
                     {checkCiudades.map((continente) => {
-                        return <Checkbox continent={continente} valor={continente} fx={filterSearch}/>
+                        return <Checkbox continent={continente} valor={continente} fx={filterSearch} />
                     })}
                 </div>
                 <div>
@@ -61,9 +61,9 @@ export default function Cities() {
                 {ciudadesFiltradas.length > 0 ? (ciudadesFiltradas.map((city) => {
                     return <CityCards city={city} id={city._id} />
                 }))
-                : (
-                    <NotFound/>
-                )}
+                    : (
+                        <NotFound />
+                    )}
             </div>
         </div>
     )
