@@ -6,8 +6,8 @@ export default function SearchHotels(props) {
     return (
         <div className="select">
             <select name="format" id="format" onChange={fx} ref={selectId} className='input'>
-                <option  value="high">Highest to lowest</option>
-                <option  value="low">Smallest to largest</option>
+                <option  value="asc">Highest to lowest</option>
+                <option  value="desc">Smallest to largest</option>
             </select>
         </div>
     )
