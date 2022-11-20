@@ -1,0 +1,33 @@
+.button-scroll {
+    position: fixed;
+    width: 40px;
+    height: 50px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #58db8f;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    border: #4dc57f;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.button-scroll:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40%;
+    margin-bottom: 70%;
+    border-bottom: 15px solid white;
+}
