@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import "./Carrousel.css";
 import {useSelector, useDispatch} from 'react-redux';
 import citiesAction from '../redux/actions/citiesAction'; 
+import hotelsAction from '../redux/actions/hotelsAction'; 
+
 
 export default function Carousel() {
 
@@ -10,12 +12,14 @@ export default function Carousel() {
   const dispatch = useDispatch();
   const {getCities} = citiesAction
 
+  const {hotels} = useSelector(store => store.hotelsReducer);
+  const { getHotels } = hotelsAction
+
   let [numeroAcambiar, setNumeroAcambiar] = useState(1)
   let [imgTotal, setImgTotal] = useState([])
 
   let [imgCities, setImgCities] = useState([])
 
-  let [hotels, setHotels] = useState([])
   let [imgHotels, setImgHotels] = useState([])
 
   let [imgPlus, setImgPlus] = useState([])
@@ -37,10 +41,9 @@ export default function Carousel() {
   useEffect(() => {
 
     dispatch(getCities())
-
-    fetch("./hotels.json")
-      .then(res => res.json())
-      .then(res => setHotels(res))
+    dispatch(getHotels())
+    
+    
   }, [])
 
 
