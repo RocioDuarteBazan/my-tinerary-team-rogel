@@ -17,7 +17,7 @@ function Navbar() {
         <nav className="menu">
             <section className="menu__container">
                 <NavLink to="/">
-                <img src="./img/logo.png" className="logo" alt="logo_tinerary" />
+                <img src="../img/logo.png" className="logo" alt="logo_tinerary" />
                 </NavLink>
                 <ul className="menu__links">
                     <div className="menu__hamburguer">

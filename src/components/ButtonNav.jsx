@@ -14,7 +14,7 @@ function ButtonNav(props) {
     return (
         <>
         <li className="menu__item menu__item--show">
-            <a href="#" className="menu__link" onClick={ocultarBoton}>{name}<img src="./img/arrow.svg" className="menu__arrow" /></a>
+            <a href="#" className="menu__link" onClick={ocultarBoton}>{name}<img src="../img/arrow.svg" className="menu__arrow" /></a>
             {mostrar && (
             <ul className="menu__nesting">
                 <SubButton nombre={subname} />
