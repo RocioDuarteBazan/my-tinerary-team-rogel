@@ -3,11 +3,15 @@ import './SignUp.css';
 import InputSignUp from '../components/InputSignUp';
 import ButtonSubmit from '../components/ButtonSubmit';
 import { useRef } from 'react'
-import axios from "axios";
-import { baseURL } from '../url';
+import { useDispatch } from 'react-redux';
+import citiesAction from '../redux/actions/citiesAction';
+import Swal from 'sweetalert2'
 
 
 export default function NewCity() {
+
+    const dispatch = useDispatch()
+    const { createNewCity } = citiesAction
 
     const form = useRef()
     const name = useRef()
@@ -15,16 +19,38 @@ export default function NewCity() {
     const photo = useRef()
     const population = useRef()
 
-    const sendForm = () => {
-        axios.post(`${baseURL}api/cities`,
-            {
-                name: name.current.value,
-                continent: continent.current.value,
-                photo: photo.current.value,
-                population: population.current.value,
-                userId: "636e67769d2ec6759994acc1"
+    async function sendForm(event) {
+        event.preventDefault()
+        let newCity = {
+            name: name.current.value,
+            continent: continent.current.value,
+            photo: photo.current.value,
+            population: population.current.value,
+            userId: "636e67769d2ec6759994acc1"
+        }
+        try {
+            let respuesta = await dispatch(createNewCity(newCity))
+            if (respuesta.payload.success) {
+                Swal.fire({
+                    icon: "success",
+                    title: "City created successfully",
+                    showConfirmButton: "true"
+                })
+                    .then(create => {
+                        if (create.isConfirmed) {
+                            window.location.href = `/cities/${respuesta.payload.id}`
+                        }
+                    })
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error in the creation of the city",
+                    text: respuesta.payload.messages
+                })
             }
-        )
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
