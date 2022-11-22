@@ -44,11 +44,48 @@ const createNewCity = createAsyncThunk('newCity', async (newCity) => {
     
 })
 
+const getCitiesAdmi = createAsyncThunk('getCitiesAdmi', async (dataUser) => {
+    try{
+        const respuesta = await axios.get(`${baseURL}api/cities?userId=${dataUser}`)
+        return respuesta.data.data
+    }catch(error){
+        return{
+            payload: 'Error'
+        }
+    }  
+})
+
+const deleteCitiesAdmi = createAsyncThunk('deleteCitiesAdmi', async (id) => {
+    try{
+        const respuesta = await axios.delete(`${baseURL}api/cities/${id}`)
+        return respuesta.data
+    }catch(error){
+        return{
+            payload: 'Error'
+        }
+    }
+})  
+
+const updateCitiesAdmi = createAsyncThunk('updateCitiesAdmi', async (data) => {
+    try{
+        const respuesta = await axios.put(`${baseURL}api/cities/${data.id}`, data.citie)
+        return respuesta.data
+    }catch(error){
+        return{
+            payload: 'Error'
+        }
+    }
+})  
+
+
 
 const citiesAction = {
     getCities,
     filterCheckCities,
-    createNewCity
+    createNewCity,
+    getCitiesAdmi,
+    deleteCitiesAdmi,
+    updateCitiesAdmi
 }
 
 export default citiesAction;
