@@ -48,19 +48,55 @@ const createNewHotel = createAsyncThunk('createNewHotel', async (newHotel) => {
             }
             return info
         }
-    }catch(error){
+    } catch (error) {
         return {
             success: false,
             response: 'An error occurred'
         }
     }
-    
+
+})
+
+const getHotelsAdmi = createAsyncThunk('getHotelsAdmi', async (dataUser) => {
+    try{
+        const respuesta = await axios.get(`${baseURL}api/hotels?userId=${dataUser}`)
+        return respuesta.data.data
+    }catch(error){
+        return{
+            payload: 'Error'
+        }
+    }  
+})
+
+const deleteHotelAdmi = createAsyncThunk('deleteHotelAdmi', async (id) => {
+    try {
+        const respuesta = await axios.delete(`${baseURL}api/hotels/${id}`)
+        return respuesta.data
+    } catch (error) {
+        return {
+            payload: 'Error'
+        }
+    }
+})
+
+const updateHotelAdmi = createAsyncThunk('updateHotelAdmi', async (data) => {
+    try {
+        const respuesta = await axios.patch(`${baseURL}api/hotels/${data.id}`, data.hotels)
+        return respuesta.data
+    } catch (error) {
+        return {
+            payload: 'Error'
+        }
+    }
 })
 
 const hotelsAction = {
     getHotels,
     filterHotels,
-    createNewHotel
+    createNewHotel,
+    getHotelsAdmi,
+    deleteHotelAdmi,
+    updateHotelAdmi
 }
 
 export default hotelsAction;

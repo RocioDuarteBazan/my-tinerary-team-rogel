@@ -23,7 +23,7 @@ export default function HotelDetails() {
   return (
     <>
       <DetailsHotel
-        img={hotels.photo[0]}
+        img={hotels.photo}
         name={hotels.name}
         capacity={hotels.capacity}
 

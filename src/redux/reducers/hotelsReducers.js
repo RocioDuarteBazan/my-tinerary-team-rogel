@@ -1,10 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 import hotelsAction from "../actions/hotelsAction"
 
-const { getHotels, filterHotels, createNewHotel } = hotelsAction
+const { getHotels, filterHotels, createNewHotel, deleteHotelAdmi , updateHotelAdmi, getHotelsAdmi } = hotelsAction
 
 const initialState = {
     hotels: [],
+    hotelsAdmin: [],
     order: '',
     name: ''
 }
@@ -30,6 +31,16 @@ const hotelsReducer = createReducer(initialState, (builder) => {
             if(action.payload.success){
                 state.hotels.push(action.payload.response)
             }
+        })
+        .addCase(getHotelsAdmi.fulfilled, (state, action) => {
+            return{...state, hotelsAdmin: action.payload}
+        })
+        .addCase(deleteHotelAdmi.fulfilled, (state, action) => {
+            let hotels = state.admiHotels.filter(hotels => hotels.id !== action.data._id)
+            return{...state, hotelsAdmin: hotels}
+        })
+        .addCase(updateHotelAdmi.fulfilled, (state, action) => {
+            return{...state}
         })
 
 });
