@@ -71,7 +71,7 @@ const getHotelsAdmi = createAsyncThunk('getHotelsAdmi', async (dataUser) => {
 const deleteHotelAdmi = createAsyncThunk('deleteHotelAdmi', async (id) => {
     try {
         const respuesta = await axios.delete(`${baseURL}api/hotels/${id}`)
-        return respuesta.data
+        return respuesta.data.data
     } catch (error) {
         return {
             payload: 'Error'
@@ -82,7 +82,7 @@ const deleteHotelAdmi = createAsyncThunk('deleteHotelAdmi', async (id) => {
 const updateHotelAdmi = createAsyncThunk('updateHotelAdmi', async (data) => {
     try {
         const respuesta = await axios.patch(`${baseURL}api/hotels/${data.id}`, data.hotels)
-        return respuesta.data
+        return respuesta.data.data
     } catch (error) {
         return {
             payload: 'Error'

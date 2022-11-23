@@ -17,14 +17,15 @@ export default function Hotel() {
     useEffect(() => {
         if (name || order) {
             let data = {
-                name,
-                order
+                name: name,
+                order: order
             }
             dispatch(filterHotels(data))
             searchId.current.value = name
             selectId.current.value = order
+        } else {
+            dispatch(getHotels())
         }
-        dispatch(getHotels())
     }, []);
 
     let filterHotelsOne = () => {
@@ -38,11 +39,6 @@ export default function Hotel() {
         }
 
         dispatch(filterHotels(data))
-        /* axios
-            .get(
-                `${baseURL}api/hotels?order=${selectId.current.value}&name=${searchId.current.value}`
-            )
-            .then((res) => setHotels(res.data.data)); */
     };
 
     return (
@@ -56,13 +52,10 @@ export default function Hotel() {
 
             <div className="cards-container container-fluid w-90 flex wrap gap-2 justify-center align-center">
 
-                {hotels.length > 0 ? (
+                {hotels.length > 0 && (
                     hotels.map((hotels, index) => {
                         return <HotelsCards hotels={hotels} key={index} id={hotels._id} />
-                    }))
-                    : (
-                        <NotFound />
-                    )}
+                    }))}
             </div>
         </div>
     )

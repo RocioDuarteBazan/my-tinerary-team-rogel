@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import HotelsCardsAdmin from '../components/HotelsCardsAdmin';
 import hotelsAction from '../redux/actions/hotelsAction';
@@ -21,13 +21,11 @@ export default function MyHotels() {
     return (
         <div className="">
             <div className="cards-container container-fluid w-90 flex wrap gap-2 justify-center align-center">
-                {hotelsAdmin.length > 0 ? (
+                {hotelsAdmin.length > 0 && (
                     hotelsAdmin.map((hotels, index) => {
                         return <HotelsCardsAdmin hotels={hotels} key={index} id={hotels._id} idAdmi={idAdmi} />
                     }))
-                    : (
-                        <NotFound />
-                    )}
+                }
             </div>
         </div>
     )
