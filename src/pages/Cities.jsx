@@ -79,12 +79,9 @@ export default function Cities() {
             </div>
 
             <div className='flex wrap'>
-                {listCities.length > 0 ? (listCities.map((city) => {
+                {listCities.length > 0 && (listCities.map((city) => {
                     return <CityCards city={city} id={city._id} />
-                }))
-                    : (
-                        <NotFound />
-                    )}
+                }))}
             </div>
         </div>
     )

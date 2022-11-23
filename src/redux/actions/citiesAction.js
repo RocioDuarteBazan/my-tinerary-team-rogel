@@ -58,7 +58,7 @@ const getCitiesAdmi = createAsyncThunk('getCitiesAdmi', async (dataUser) => {
 const deleteCitiesAdmi = createAsyncThunk('deleteCitiesAdmi', async (id) => {
     try{
         const respuesta = await axios.delete(`${baseURL}api/cities/${id}`)
-        return respuesta.data
+        return respuesta.data.data
     }catch(error){
         return{
             payload: 'Error'
@@ -69,7 +69,7 @@ const deleteCitiesAdmi = createAsyncThunk('deleteCitiesAdmi', async (id) => {
 const updateCitiesAdmi = createAsyncThunk('updateCitiesAdmi', async (data) => {
     try{
         const respuesta = await axios.put(`${baseURL}api/cities/${data.id}`, data.citie)
-        return respuesta.data
+        return respuesta.data.data
     }catch(error){
         return{
             payload: 'Error'
@@ -77,7 +77,38 @@ const updateCitiesAdmi = createAsyncThunk('updateCitiesAdmi', async (data) => {
     }
 })  
 
+const getItinerariesUser = createAsyncThunk('getItinerariesAdmi', async (dataUser) => {
+    try{
+        const respuesta = await axios.get(`${baseURL}api/itineraries?userId=${dataUser}`)
+        return respuesta.data.data
+    }catch(error){
+        return{
+            payload: 'Error'
+        }
+    }  
+})
 
+const deleteItinerariesUser = createAsyncThunk('deleteItinerariesAdmi', async (id) => {
+    try{
+        const respuesta = await axios.delete(`${baseURL}api/itineraries/${id}`)
+        return respuesta.data.data
+    }catch(error){
+        return{
+            payload: 'Error'
+        }
+    }
+})  
+
+const updateItinerariesUser = createAsyncThunk('updateItinerariesAdmi', async (data) => {
+    try{
+        const respuesta = await axios.put(`${baseURL}api/itineraries/${data.id}`, data.itinerarie)
+        return respuesta.data.data
+    }catch(error){
+        return{
+            payload: 'Error'
+        }
+    }
+})  
 
 const citiesAction = {
     getCities,
@@ -85,7 +116,10 @@ const citiesAction = {
     createNewCity,
     getCitiesAdmi,
     deleteCitiesAdmi,
-    updateCitiesAdmi
+    updateCitiesAdmi,
+    getItinerariesUser,
+    deleteItinerariesUser,
+    updateItinerariesUser
 }
 
 export default citiesAction;
