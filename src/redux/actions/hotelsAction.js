@@ -58,14 +58,14 @@ const createNewHotel = createAsyncThunk('createNewHotel', async (newHotel) => {
 })
 
 const getHotelsAdmi = createAsyncThunk('getHotelsAdmi', async (dataUser) => {
-    try{
+    try {
         const respuesta = await axios.get(`${baseURL}api/hotels?userId=${dataUser}`)
         return respuesta.data.data
-    }catch(error){
-        return{
+    } catch (error) {
+        return {
             payload: 'Error'
         }
-    }  
+    }
 })
 
 const deleteHotelAdmi = createAsyncThunk('deleteHotelAdmi', async (id) => {
@@ -90,13 +90,49 @@ const updateHotelAdmi = createAsyncThunk('updateHotelAdmi', async (data) => {
     }
 })
 
+const getShowUser = createAsyncThunk('getShowUser', async (dataUser) => {
+    try {
+        const respuesta = await axios.get(`${ baseURL }api/shows?userId=${ dataUser }`)
+        return respuesta.data.data
+    } catch (error) {
+        return {
+            payload: 'Error'
+        }
+    }
+})
+
+const deleteShowUser = createAsyncThunk('deleteShowUser', async (id) => {
+    try {
+        const respuesta = await axios.delete(`${ baseURL }api/shows/${ id }`)
+        return respuesta.data.data
+    } catch (error) {
+        return {
+            payload: 'Error'
+        }
+    }
+})
+
+const updateShowUser = createAsyncThunk('updateShowUser', async (data) => {
+    try {
+        const respuesta = await axios.patch(`${ baseURL }api/shows/${ data.id }`, data.shows)
+        return respuesta.data.data
+    } catch (error) {
+        return {
+            payload: 'Error'
+        }
+    }
+})
+
 const hotelsAction = {
     getHotels,
     filterHotels,
     createNewHotel,
     getHotelsAdmi,
     deleteHotelAdmi,
-    updateHotelAdmi
+    updateHotelAdmi,
+    getShowUser,
+    deleteShowUser,
+    updateShowUser
 }
 
 export default hotelsAction;
