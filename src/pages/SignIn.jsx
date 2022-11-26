@@ -3,25 +3,55 @@ import './SignUp.css';
 import InputSignUp from '../components/InputSignUp';
 import ButtonSubmit from '../components/ButtonSubmit';
 import { useRef } from 'react'
+import Swal from 'sweetalert2';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom"
 import { Link as NavLink } from 'react-router-dom'
+import userActions from '../redux/actions/userAction'
 
 
 export default function SignIn() {
 
+    let dispatch = useDispatch()
+    let { login } = userActions
+    const navigate = useNavigate()
     const form = useRef()
     const email = useRef()
     const password = useRef()
 
-
-    const enviarFormulario = () => {
-        let user = (
-            {
-                email: email.current.value,
-                password: password.current.value,
+    async function submit(e) {
+        e.preventDefault()
+        let user = {
+            email: email.current.value,
+            password: password.current.value
+        }
+        try {
+            let res = await dispatch(login(user))
+            console.log(res);
+            if (res.payload.success) {
+                Swal.fire({
+                    icon: "success",
+                    title: res.payload.res.message,
+                    showConfirmButton: true,
+                })
+                    .then(result => {
+                        if (result.isConfirmed) {
+                            navigate("/")
+                        }
+                    })
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "email or password incorrect",
+                    text: res.payload.messages,
+                });
             }
-        )
-        localStorage.setItem('user', JSON.stringify(user))
-    }
+        } catch (error) {
+            console.log(error);
+        }
+       /*  localStorage.setItem('user', JSON.stringify(user)) */
+    };
+
 
 
     return (
@@ -50,7 +80,7 @@ export default function SignIn() {
                             <form action="" method="get" ref={form}>
                                 <InputSignUp type='email' placeholder='Email' refId={email} />
                                 <InputSignUp type='password' placeholder='Password' refId={password} />
-                                <ButtonSubmit type='submit' text='Login' fx={enviarFormulario} />
+                                <ButtonSubmit type='submit' text='Login' fx={submit} />
                             </form>
                         </div>
                     </aside>
