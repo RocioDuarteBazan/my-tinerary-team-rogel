@@ -1,7 +1,7 @@
 .container {
     display: block;
     position: relative;
-    padding-left: 35px;
+    padding-left: 30px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -13,12 +13,7 @@
     opacity: 0;
     cursor: pointer;
     height: 0;
-    width: 0;
-    
-}
-
-#container-check{
-    padding-left: 30px;
+    width: 0;  
 }
 
 .checkmark {
@@ -27,11 +22,12 @@
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #acded4; 
+    background-color: #c6c6c6; 
+    border-radius: 5px;
 }
 
 .container input:checked~.checkmark {
-    background-color: #2196F3;
+    background-color: #7a41a3d2;
 }
 
 .checkmark:after {
