@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap') ;
 
 
 * {
@@ -15,16 +16,9 @@ main {
     width: 100%;
 }
 
-header{
-    background-image: url();
-    background-size: cover;
-    width: 100%;
-} 
-
-
 .logo {
     height: auto;
-    width: 200px;
+    width: 220px;
     padding: 2px;
 }
 
@@ -32,31 +26,32 @@ header{
     position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    font-size: 2vh;
+    color: rgb(255, 255, 255);   
+    font-family: 'Rajdhani', sans-serif;
 }
 
-
 .menu {
-    background-image: url(../../public/img/bg-header.jpg);
-    color: #fff;
     width: 100%;
-    background-color: #75c9b79a;
+    height: 6em;
+    background-color: #000000;
     z-index: 100;
+    display: flex;
 }
 
 .menu__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
     padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 22px;
 }
 
 .menu__links {
@@ -88,7 +83,7 @@ header{
 }
 
 .menu__link:hover {
-    background-color: #abd699;
+    background-color: #2d2d2d;
 }
 
 
@@ -108,7 +103,7 @@ header{
     bottom: 0;
     width: max-content;
     transform: translateY(100%);
-    background-color: #c7ddcc;
+    background-color: #2d2d2d;
 }
 
 .menu__link--inside {
@@ -116,7 +111,7 @@ header{
 }
 
 .menu__link--inside:hover {
-    background-color: #ffe26a;
+    background-color: #811a9eaf;
 }
 
 .menu__hamburguer {

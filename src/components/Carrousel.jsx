@@ -104,7 +104,7 @@ return (
         }
       </div>
       <div className='button-div'>
-        <button onClick={next} className='button-carrousel'> <img className='img-botton-carrousel' src="../img/botton-next.png" alt="button" /></button>
+        <button onClick={next} className='button-carrousel'><img className='img-botton-carrousel' src="../img/botton-next.png" alt="button" /></button>
       </div>
     </div>
   </>
