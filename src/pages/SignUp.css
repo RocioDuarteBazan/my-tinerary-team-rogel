@@ -6,7 +6,7 @@
 }
 
 .body-form {
-    background-color: #A3C7D6;
+    background-color:  #424242;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -35,7 +35,7 @@ div#container section {
     width: 85%;
     max-width: 960px;
     margin: 30px 0;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgb(178, 178, 178);
     border-radius: 30px;
     overflow: hidden;
     backdrop-filter: blur(5px);
@@ -45,7 +45,7 @@ div#container section {
 
 div#container section article {
     width: 45%;
-    background-color: #3F3B6C;
+    background-color: #7736d96e;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,7 +78,7 @@ div#container section article a.btn {
 
 div#container section article a.btn:hover {
     background-color: #000;
-    color: #f5d400;
+    color: #dd8bf8;
 }
 
 div#container section aside {
@@ -149,7 +149,7 @@ form input[type=text] { background-image: url('../../public/img/logoAccess.png')
 form button[type=submit] {
     margin-top: 20px;
     border: none;
-    background-color: #f5d400;
+    background-color: #dd8bf8;
     color: #000;
     font-size: 20px;
     font-weight: 600;
@@ -161,7 +161,7 @@ form button[type=submit] {
 
 form button[type=submit]:hover {
     background-color: #000;
-    color: #f5d400;
+    color: #dc79fa;
 }
 
 @media(max-width: 760px)  {

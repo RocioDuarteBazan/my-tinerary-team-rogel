@@ -4,16 +4,21 @@ import CityCards from '../components/CityCards';
 import NotFound from './NotFound';
 import '../components/Checkbox.css';
 import '../components/SearchCss.css';
-import {useSelector, useDispatch} from 'react-redux';
-import citiesAction from '../redux/actions/citiesAction'; 
+import { useSelector, useDispatch } from 'react-redux';
+import citiesAction from '../redux/actions/citiesAction';
 
 
 export default function Cities() {
-    
-    const {listCities, continent, search, checked, checkBox} = useSelector(store => store.citiesReducer);
+
+    let { listCities, continent, search, checked, checkBox } = useSelector(store => store.citiesReducer);
     const dispatch = useDispatch();
-    const {getCities, filterCheckCities} = citiesAction
-    
+    const { getCities, filterCheckCities } = citiesAction
+
+    let [time, setTime] = useState(true)
+
+    if (time) {
+        listCities = null
+    }
 
     let [checkboxes, setCheckboxes] = useState([])
     const searchId = useRef()
@@ -21,9 +26,14 @@ export default function Cities() {
     /* console.log(input); */
 
     useEffect(() => {
+
+        setTimeout(() => {
+            setTime(false)
+        }, 1000);
+
         if (search || checkBox) {
-            let info ={
-                search: search, 
+            let info = {
+                search: search,
                 continents: checkBox,
                 continentsChecked: checked
             }
@@ -35,10 +45,10 @@ export default function Cities() {
                     checkedCity.checked = true
                 })
             }
-        }else{
+        } else {
             dispatch(getCities())
         }
-        
+
     }, [])
 
     function filterCheck(check) {
@@ -61,7 +71,7 @@ export default function Cities() {
             continentsChecked: check
         }
 
-        dispatch(filterCheckCities(data))  
+        dispatch(filterCheckCities(data))
 
     }
 
@@ -79,9 +89,20 @@ export default function Cities() {
             </div>
 
             <div className='flex wrap'>
-                {listCities.length > 0 && (listCities.map((city) => {
-                    return <CityCards city={city} id={city._id} />
-                }))}
+
+                {
+                    listCities !== null ?
+
+                        listCities.length > 0 ? listCities.map((city) => {
+                            return <CityCards city={city} id={city._id} />
+                        }) : <NotFound />
+
+                        :
+                        <div className='d-flex flex-column align-items-center'>
+                            <img src="https://media.giphy.com/media/twn3qOrkv9KBGgn0bc/giphy.gif" alt="error" className="gif img-fluid " width="385px" />
+                        </div>
+                }
+
             </div>
         </div>
     )

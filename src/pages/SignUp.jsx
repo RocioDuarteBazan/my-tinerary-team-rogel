@@ -4,31 +4,59 @@ import InputSignUp from '../components/InputSignUp';
 import ButtonSubmit from '../components/ButtonSubmit';
 import { useRef } from 'react'
 import { Link as NavLink } from 'react-router-dom'
-
+import axios from 'axios';
+import { baseURL } from '../url';
+import Swal from 'sweetalert2';
 
 export default function SignUp() {
 
 
     const form = useRef()
-    const fullName = useRef()
+    const name = useRef()
+    const lastName = useRef()
+    const photo = useRef()
+    const age = useRef()
     const email = useRef()
     const password = useRef()
-    
-    const enviarFormulario = () => {
 
+    async function enviarFormulario(event) {
+        event.preventDefault()
+        let newUser =
+        {
+            name: name.current.value,
+            lastName: lastName.current.value,
+            photo: photo.current.value,
+            age: age.current.value,
+            email: email.current.value,
+            password: password.current.value,
+        }
 
-        let newUser= (
-            {
-                fullName: fullName.current.value,
-                email: email.current.value,
-                password: password.current.value,
+        try {
+            let response = await axios.post(`${baseURL}api/auth/sign-up`, newUser)
+            console.log(response);
+            if (response.data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'User created!',
+                    showConfirmButton: true,
+                })
+                    .then(make => {
+                        if (make.isConfirmed) {
+                            form.current.reset();
+                        }
+                    })
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Registration error',
+                    text: response.data.message
+                })
             }
-        )
 
-
-        localStorage.setItem('newUser', JSON.stringify(newUser))
+        } catch (error) {
+            console.log(error);
+        }
     }
-
 
     return (
         <body className="body-form">
@@ -54,7 +82,10 @@ export default function SignUp() {
                             </nav>
                             <p>or use your email for Registration</p>
                             <form action="" method="get" ref={form}>
-                                <InputSignUp type='text' placeholder='Full Name' refId={fullName} />
+                                <InputSignUp type='text' placeholder='Name' refId={name} />
+                                <InputSignUp type='text' placeholder='Lastname' refId={lastName} />
+                                <InputSignUp type='text' placeholder='Photo' refId={photo} />
+                                <InputSignUp type='text' placeholder='Age' refId={age} />
                                 <InputSignUp type='email' placeholder='Email' refId={email} />
                                 <InputSignUp type='password' placeholder='Password' refId={password} />
                                 <ButtonSubmit type='submit' text='Sign Up' fx={enviarFormulario} />

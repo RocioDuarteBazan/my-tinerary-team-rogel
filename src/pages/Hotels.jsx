@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import SearchHotels from '../components/SearchHotels'
 import HotelsCards from '../components/HotelsCards'
 import '../components/SearchCss.css';
@@ -8,13 +8,24 @@ import hotelsAction from '../redux/actions/hotelsAction';
 
 export default function Hotel() {
     const dispatch = useDispatch()
-    const { hotels, name, order } = useSelector(state => state.hotelsReducer)
+    let { hotels, name, order } = useSelector(state => state.hotelsReducer)
     const { getHotels, filterHotels } = hotelsAction
+
+    let [time, setTime] = useState(true)
+
+    if (time) {
+        hotels = null
+    }
 
     const searchId = useRef();
     const selectId = useRef();
 
     useEffect(() => {
+
+        setTimeout(() => {
+            setTime(false)
+        }, 1000);
+
         if (name || order) {
             let data = {
                 name: name,
@@ -52,10 +63,19 @@ export default function Hotel() {
 
             <div className="cards-container container-fluid w-90 flex wrap gap-2 justify-center align-center">
 
-                {hotels.length > 0 && (
-                    hotels.map((hotels, index) => {
-                        return <HotelsCards hotels={hotels} key={index} id={hotels._id} />
-                    }))}
+                {
+                    hotels !== null ?
+
+                        hotels.length > 0 ? hotels.map((hotels, index) => {
+                            return <HotelsCards hotels={hotels} key={index} id={hotels._id} />
+                        }) : <NotFound />
+
+                        :
+                        <div className='d-flex flex-column align-items-center'>
+                            <img src="https://media.giphy.com/media/twn3qOrkv9KBGgn0bc/giphy.gif" alt="error" className="gif img-fluid " width="385px" />
+                        </div>
+                }
+
             </div>
         </div>
     )

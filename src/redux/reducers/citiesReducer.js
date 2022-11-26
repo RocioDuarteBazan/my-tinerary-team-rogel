@@ -21,7 +21,12 @@ const citiesReducer = createReducer(initialState, (builder) => {
             return { ...state, listCities: action.payload, continent: check }
         })
         .addCase(filterCheckCities.fulfilled, (state, action) => {
-            return { ...state, listCities: action.payload.response, search: action.payload.search, checkBox: action.payload.checkBox, checked: action.payload.check }
+            return { ...state, 
+                listCities: action.payload.response, 
+                search: action.payload.search, 
+                checkBox: action.payload.checkBox, 
+                checked: action.payload.check 
+            }
         })
         .addCase(createNewCity.fulfilled, (state, action) => {
             if (action.payload.success) {

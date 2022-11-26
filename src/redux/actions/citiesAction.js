@@ -8,14 +8,25 @@ const getCities = createAsyncThunk('getCities', async () => {
 })
 
 const filterCheckCities = createAsyncThunk('filterCheckCities', async (data) => {
-    const respuesta = await axios.get(`${baseURL}api/cities?${data.continents}&name=${data.search}`)
-    let info = {
-        response: respuesta.data.data,
-        search: data.search,
-        checkBox: data.continents,
-        check: data.continentsChecked
+    try {
+        const respuesta = await axios.get(`${baseURL}api/cities?${data.continents}&name=${data.search}`)
+        console.log(respuesta);
+        let info = {
+            response: respuesta.data.data,
+            search: data.search,
+            checkBox: data.continents,
+            check: data.continentsChecked
+        }
+        return info
+    } catch (error) {
+        let info = {
+            response: [],
+            search: data.search,
+            checkBox: data.continents,
+            check: data.continentsChecked
+        }
+        return info
     }
-    return info
 })
 
 const createNewCity = createAsyncThunk('newCity', async (newCity) => {
@@ -35,80 +46,80 @@ const createNewCity = createAsyncThunk('newCity', async (newCity) => {
             }
             return info
         }
-    }catch(error){
+    } catch (error) {
         return {
             success: false,
             response: 'An error occurred'
         }
     }
-    
+
 })
 
 const getCitiesAdmi = createAsyncThunk('getCitiesAdmi', async (dataUser) => {
-    try{
+    try {
         const respuesta = await axios.get(`${baseURL}api/cities?userId=${dataUser}`)
         return respuesta.data.data
-    }catch(error){
-        return{
+    } catch (error) {
+        return {
             payload: 'Error'
         }
-    }  
+    }
 })
 
 const deleteCitiesAdmi = createAsyncThunk('deleteCitiesAdmi', async (id) => {
-    try{
+    try {
         const respuesta = await axios.delete(`${baseURL}api/cities/${id}`)
         return respuesta.data.data
-    }catch(error){
-        return{
+    } catch (error) {
+        return {
             payload: 'Error'
         }
     }
-})  
+})
 
 const updateCitiesAdmi = createAsyncThunk('updateCitiesAdmi', async (data) => {
-    try{
+    try {
         const respuesta = await axios.put(`${baseURL}api/cities/${data.id}`, data.citie)
         return respuesta.data.data
-    }catch(error){
-        return{
+    } catch (error) {
+        return {
             payload: 'Error'
         }
     }
-})  
+})
 
 const getItinerariesUser = createAsyncThunk('getItinerariesAdmi', async (dataUser) => {
-    try{
+    try {
         const respuesta = await axios.get(`${baseURL}api/itineraries?userId=${dataUser}`)
         return respuesta.data.data
-    }catch(error){
-        return{
+    } catch (error) {
+        return {
             payload: 'Error'
         }
-    }  
+    }
 })
 
 const deleteItinerariesUser = createAsyncThunk('deleteItinerariesAdmi', async (id) => {
-    try{
+    try {
         const respuesta = await axios.delete(`${baseURL}api/itineraries/${id}`)
         return respuesta.data.data
-    }catch(error){
-        return{
+    } catch (error) {
+        return {
             payload: 'Error'
         }
     }
-})  
+})
 
 const updateItinerariesUser = createAsyncThunk('updateItinerariesAdmi', async (data) => {
-    try{
+    try {
         const respuesta = await axios.put(`${baseURL}api/itineraries/${data.id}`, data.itinerarie)
         return respuesta.data.data
-    }catch(error){
-        return{
+    } catch (error) {
+        return {
             payload: 'Error'
         }
     }
-})  
+})
 
 const citiesAction = {
     getCities,
