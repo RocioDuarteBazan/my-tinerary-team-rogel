@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
-import userActions from '../actions/userActions'
+import userAction from '../actions/userAction'
 
-const { login } = userActions
+const { login } = userAction
 const initialState = {
     user: [],
     name: "",
