@@ -7,6 +7,8 @@ import { Link as NavLink } from 'react-router-dom';
 
 
 function Navbar() {
+    let { role, logged } = useSelector(store => store.userReducer)
+
     let [mostrar, setMostrar] = useState(false)
 
     let ocultarBoton = () => {
@@ -26,8 +28,12 @@ function Navbar() {
                             <div className='flex'>
                                 <ButtonNav name='Home' subname='Cities' subname2='Hotels' />
                                 <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
-                                <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                { logged && (
+                                    <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                )
+                                }
                                 <ButtonNav name='My Space' subname='My Cities' subname2='My Hotels' />
+                                <ButtonNav name='My Space Two' subname='New City' subname2='New Hotel' />
                             </div>)}
                     </div>
                     <div className='menu__nohamburguer'>

@@ -15,27 +15,39 @@ import MyCities from "./pages/MyCities"
 import MyHotels from "./pages/MyHotels"
 import MyTineraries from "./pages/MyTineraries";
 import MyShows from "./pages/MyShows";
+import { useSelector } from 'react-redux'
+import ProtectedRoute from "./components/ProtectedRoute";
+
 
 
 function App() {
+
+  let { logged, role } = useSelector(store => store.userReducer)
+
+
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/*" element={<NotFound />} /> 
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />  
+        <Route path="/*" element={<NotFound />} />
+        <Route path="/signup" element={ logged ? <Home/> : <SignUp />} />
+        <Route path="/signin" element={logged ? <Home/> : <SignIn />} />
         <Route path="/cities" element={<Cities />} />
-        <Route path="/hotels" element={<Hotels />} />    
-        <Route path="/newcity" element={<NewCity />} />  
-        <Route path="/newhotel" element={<NewHotel/>} />
+        <Route path="/hotels" element={<Hotels />} />
         <Route path="/cities/:id" element={<CitiesDetails />} />
         <Route path="/hotels/:id" element={<HotelDetails />} />
-        <Route path="/mycities" element={<MyCities />} />   
-        <Route path="/myhotels" element={<MyHotels />} />   
-        <Route path="/mytineraries" element={<MyTineraries/>}/>
-        <Route path="/myshows" element={<MyShows/>}/>
+
+        <Route path="/newcity" element={<NewCity />} />
+        <Route path="/newhotel" element={<NewHotel />} />
+        <Route path="/mycities" element={<MyCities />} />
+        <Route path="/myhotels" element={<MyHotels />} />
+
+        <Route element={<ProtectedRoute isAllowed={role === "user"}/>} />
+          <Route path="/mytineraries" element={<MyTineraries />} />
+          <Route path="/myshows" element={<MyShows />} />
+        <Route />
+
       </Routes>
     </Layout>
   );
