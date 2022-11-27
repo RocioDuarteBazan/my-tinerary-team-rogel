@@ -20,6 +20,11 @@ code {
 
 /* Display flex */
 
+.texto-nav-user{
+  color: white;
+}
+
+
 .flex {
   display: flex;
 }
