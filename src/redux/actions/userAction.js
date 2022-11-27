@@ -22,30 +22,45 @@ try {
         }
     }
 });
-const exit = createAsyncThunk("exit", async (token) => {
-    let url = `${ baseURL }api/auth/sign-in`
-        let headers = { headers: { "Authorization": `Bearer ${ token }`
-}}
-try {
-    let user = await axios.put(url, null, headers)
-    console.log(user.data);
-    return {
-        success: true,
-        response: user.data.message
+const reEntry = createAsyncThunk('reEnter', async (token) => {
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+    try {
+        let user = await axios.post(`${baseURL}api/auth/token`, null, headers)
+        return {
+            success: true,
+            response: user.data.response,
+            token: token,
+        }
+
+    } catch (error) {
+        console.log(error.response)
+        return {
+            success: false,
+            response: error.response.data.message
+        }
     }
-} catch (error) {
-    console.log(error.response)
-    return {
-        success: false,
-        response: error.response.data.message
+});
+
+const signOff = createAsyncThunk('logout', async (token) => {
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+    try {
+        let user = await axios.post(`${baseURL}api/auth/sign-out`, null, headers)
+        return {
+            success: true,
+            response: user.data.message
+        }
+    } catch (error) {
+        console.log(error.response)
+        return {
+            success: false,
+            response: error.response.data.message
+        }
     }
-} 
-}
-)
+});
 
 const userAction = {
     login,
-    exit
-
+    reEntry,
+    signOff
 }
 export default userAction

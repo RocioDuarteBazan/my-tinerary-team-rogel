@@ -1,20 +1,47 @@
 import React from 'react';
 import { useState } from 'react';
 import ButtonNav from './ButtonNav';
+import LogOutBtn from './LogOutBtn';
 import './Navbar.css';
 import { Link as NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux'
+import userAction from '../redux/actions/userAction'
+import Swal from 'sweetalert2'
 
 
 function Navbar() {
-    let { role, logged } = useSelector(state => state.userReducer)
+    let { role, logged, token, name } = useSelector(state => state.userReducer)
+    let dispatch = useDispatch()
+    const { signOff } = userAction
 
     let [mostrar, setMostrar] = useState(false)
 
     let ocultarBoton = () => {
         setMostrar(!mostrar)
     }
+
+    function logOut() {
+        Swal.fire({
+            title: 'Are you sure you want to log out?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, log out!'
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    dispatch(signOff(token))
+                    Swal.fire(
+                        'Logged out!',
+                        'You have been logged out',
+                        'success'
+                    )
+                }
+            })
+    }
+
     return (
 
         <nav className="menu">
@@ -29,36 +56,69 @@ function Navbar() {
                             <div className='flex'>
                                 <ButtonNav name='Home' subname='Cities' subname2='Hotels' />
                                 {!logged && (
-                                    <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
-                                )
-                                }
-                                {logged && role === 'user' && (
-                                    <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
-                                )
-                                }
-                                {logged && role === 'admin' && (
                                     <>
-                                        <ButtonNav name='My Space' subname='My Cities' subname2='My Hotels' />
-                                        <ButtonNav name='My Space Two' subname='New City' subname2='New Hotel' />
+                                        <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
+                                        <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_man_usersearch_thesearch_theclient_2356.png" alt="logoUser" />
                                     </>
-                                )}
+                                )
+                                }
+                                {logged && (
+                                    <>
+                                        <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                        <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
+                                        <p className='texto-nav-user'>{name}</p>
+                                        <NavLink to="/">
+                                            <LogOutBtn type={"text"} text={"Exit"} fx={logOut} ></LogOutBtn>
+                                        </NavLink>
+                                    </>
+                                )
+                                }
+                                {logged && role === 'admi' && (
+                                    <>
+                                        <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                        <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
+                                        <p className='texto-nav-user'>{name}</p>
+                                        <NavLink to="/">
+                                            <LogOutBtn type={"text"} text={"Exit"} fx={logOut} className='custom-btn btn-8' ></LogOutBtn>
+                                        </NavLink>
+                                    </>
+                                )
+                                }
                             </div>)}
                     </div>
                     <div className='menu__nohamburguer'>
                         <ButtonNav name='Home' subname='Cities' subname2='Hotels' />
                         {!logged && (
-                            <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
+                            <>
+                                <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
+                                <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_man_usersearch_thesearch_theclient_2356.png" alt="logoUser" />
+                            </>
                         )
                         }
                     </div>
                     <div className='menu__nohamburguer'>
-                        {logged && role === 'user' && (
-                            <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                        {logged && (
+                            <>
+                                <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
+                                <p className='texto-nav-user'>{name}</p>
+                                <NavLink to="/">
+                                    <LogOutBtn type={"text"} text={"Exit"} fx={logOut} className='custom-btn btn-8' ></LogOutBtn>
+                                </NavLink>
+                            </>
                         )
                         }
-                        {logged && role === 'admin' && (
-                            <ButtonNav name='My Space' subname='My Cities' subname2='My Hotels' />
-                        )}
+                        {logged && role === 'admi' && (
+                            <>
+                                <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
+                                <p className='texto-nav-user'>{name}</p>
+                                <NavLink to="/">
+                                    <LogOutBtn type={"text"} text={"Exit"} fx={logOut} className='custom-btn btn-8' ></LogOutBtn>
+                                </NavLink>
+                            </>
+                        )
+                        }
                     </div>
                 </ul>
             </section>

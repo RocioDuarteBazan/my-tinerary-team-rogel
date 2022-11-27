@@ -15,14 +15,25 @@ import MyCities from "./pages/MyCities"
 import MyHotels from "./pages/MyHotels"
 import MyTineraries from "./pages/MyTineraries";
 import MyShows from "./pages/MyShows";
-import { useSelector } from 'react-redux'
+import { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import ProtectedRoute from "./components/ProtectedRoute";
+import userAction from "./redux/actions/userAction";
 
 
 
 function App() {
 
   let { logged, role } = useSelector(store => store.userReducer)
+  let dispatch = useDispatch()
+  let { reEntry } = userAction
+  let token = JSON.parse(localStorage.getItem('token'))
+  
+  useEffect(() => {
+    if (token) {
+      dispatch(reEntry(token.token.user))
+    }
+  },[])
 
 
   return (
