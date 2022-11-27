@@ -39,6 +39,7 @@ function App() {
         <Route path="/signup" element={ logged ? <Home/> : <SignUp />} />
         <Route path="/signin" element={logged ? <Home/> : <SignIn />} />
         
+        <Route element={<ProtectedRoute isAllowed={role === "admin"}/>} />
         <Route path="/newcity" element={<NewCity />} />
         <Route path="/newhotel" element={<NewHotel />} />
         <Route path="/mycities" element={<MyCities />} />

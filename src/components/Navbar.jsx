@@ -32,12 +32,16 @@ function Navbar() {
                                     <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
                                 )
                                 }
-                                {logged && (
+                                {logged && role === 'user' && (
                                     <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
                                 )
                                 }
-                                <ButtonNav name='My Space' subname='My Cities' subname2='My Hotels' />
-                                <ButtonNav name='My Space Two' subname='New City' subname2='New Hotel' />
+                                {logged && role === 'admin' && (
+                                    <>
+                                        <ButtonNav name='My Space' subname='My Cities' subname2='My Hotels' />
+                                        <ButtonNav name='My Space Two' subname='New City' subname2='New Hotel' />
+                                    </>
+                                )}
                             </div>)}
                     </div>
                     <div className='menu__nohamburguer'>
@@ -48,11 +52,13 @@ function Navbar() {
                         }
                     </div>
                     <div className='menu__nohamburguer'>
-                        {logged && (
+                        {logged && role === 'user' && (
                             <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
                         )
                         }
-                        <ButtonNav name='My Space' subname='My Cities' subname2='My Hotels' />
+                        {logged && role === 'admin' && (
+                            <ButtonNav name='My Space' subname='My Cities' subname2='My Hotels' />
+                        )}
                     </div>
                 </ul>
             </section>
