@@ -31,13 +31,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/*" element={<NotFound />} />
-        <Route path="/signup" element={ logged ? <Home/> : <SignUp />} />
-        <Route path="/signin" element={logged ? <Home/> : <SignIn />} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/cities/:id" element={<CitiesDetails />} />
         <Route path="/hotels/:id" element={<HotelDetails />} />
 
+        <Route path="/signup" element={ logged ? <Home/> : <SignUp />} />
+        <Route path="/signin" element={logged ? <Home/> : <SignIn />} />
+        
         <Route path="/newcity" element={<NewCity />} />
         <Route path="/newhotel" element={<NewHotel />} />
         <Route path="/mycities" element={<MyCities />} />

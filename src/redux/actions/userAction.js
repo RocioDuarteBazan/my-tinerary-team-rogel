@@ -6,11 +6,13 @@ const login = createAsyncThunk("login", async (datos) => {
     let url = `${ baseURL }api/auth/sign-in`
 try {
         let user = await axios.post(url, datos)
+        console.log(user);
         return {
             success: true,
             response: user.data.response,
             res: user.data
         }
+
     } catch (error) {
         console.log(error.response)
         return {

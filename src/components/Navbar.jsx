@@ -3,11 +3,12 @@ import { useState } from 'react';
 import ButtonNav from './ButtonNav';
 import './Navbar.css';
 import { Link as NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 
 function Navbar() {
-    let { role, logged } = useSelector(store => store.userReducer)
+    let { role, logged } = useSelector(state => state.userReducer)
 
     let [mostrar, setMostrar] = useState(false)
 
@@ -27,8 +28,11 @@ function Navbar() {
                         {mostrar && (
                             <div className='flex'>
                                 <ButtonNav name='Home' subname='Cities' subname2='Hotels' />
-                                <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
-                                { logged && (
+                                {!logged && (
+                                    <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
+                                )
+                                }
+                                {logged && (
                                     <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
                                 )
                                 }
@@ -38,10 +42,16 @@ function Navbar() {
                     </div>
                     <div className='menu__nohamburguer'>
                         <ButtonNav name='Home' subname='Cities' subname2='Hotels' />
-                        <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
+                        {!logged && (
+                            <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
+                        )
+                        }
                     </div>
                     <div className='menu__nohamburguer'>
-                        <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                        {logged && (
+                            <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                        )
+                        }
                         <ButtonNav name='My Space' subname='My Cities' subname2='My Hotels' />
                     </div>
                 </ul>
