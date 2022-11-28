@@ -21,6 +21,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import ProtectedRoute from "./components/ProtectedRoute";
 import userAction from "./redux/actions/userAction";
 import Profile from './pages/Profile';
+import NewShow from "./pages/NewShow";
 
 
 
@@ -73,6 +74,7 @@ function App() {
         <Route path="/mytineraries" element={<MyTineraries />} />
         <Route path="/myshows" element={<MyShows />} />
         <Route path="/newtinerary" element={<NewTinerary />} />
+        <Route path="/newshow" element={<NewShow />} />
         <Route />
 
 
