@@ -34,7 +34,7 @@ export default function NewTinerary() {
         let newtinerary = {
             citiId: citiId.current.value,
             name: name.current.value,
-            photo:[photo1.current.value, photo2.current.value, photo3.current.value],
+            photo: [photo1.current.value, photo2.current.value, photo3.current.value],
             description: description.current.value,
             price: price.current.value,
             duration: duration.current.value,
@@ -74,18 +74,13 @@ export default function NewTinerary() {
                     <article>
                         <div className="inner">
                             <div>
-                                <img id="logoAccess" src="./img/logoAccess.png" alt="logo_access" />
+                                <img id="logoAccess" src="./img/new-tinerary-logo.png" alt="logo_access" />
                             </div>
-                            <h1>New Tinerary</h1>
                         </div>
                     </article>
                     <aside>
                         <div className="inner">
-                            <h2>Create Account</h2>
-                            <nav id="socialLogin">
-                                <a href="" className="google"></a>
-                            </nav>
-                            <p>or use your email for Registration</p>
+                            <h2>Create a New Tinerary:</h2>
                             <form action="" method="get" ref={form}>
                                 <InputSignUp className="input-text" type="text" placeholder="Name" refId={name} />
                                 <select ref={citiId} id="cityId">
