@@ -35,6 +35,7 @@ main {
     color: rgb(255, 255, 255);   
     font-family: 'Rajdhani', sans-serif;
 }
+ 
 
 .menu {
     width: 100%;
@@ -96,8 +97,8 @@ main {
 
 .menu__nesting {
     list-style: none;
-    transition: clip-path .3s;
-    clip-path: var(--clip);
+   /*  transition: clip-path .3s;
+    clip-path: var(--clip); */
     position: absolute;
     right: 0;
     bottom: 0;

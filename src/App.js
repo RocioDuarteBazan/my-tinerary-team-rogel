@@ -15,6 +15,7 @@ import MyCities from "./pages/MyCities"
 import MyHotels from "./pages/MyHotels"
 import MyTineraries from "./pages/MyTineraries";
 import MyShows from "./pages/MyShows";
+import NewTinerary from "./pages/NewTinerary";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -67,10 +68,11 @@ function App() {
         <Route path="/mycities" element={<MyCities />} />
         <Route path="/myhotels" element={<MyHotels />} />
 
-        <Route element={<ProtectedRoute isAllowed={role === "user"} />} />
+        
         <Route element={<ProtectedRoute isAllowed={role === "user"} reDirect="/" />}></Route>
         <Route path="/mytineraries" element={<MyTineraries />} />
         <Route path="/myshows" element={<MyShows />} />
+        <Route path="/newtinerary" element={<NewTinerary />} />
         <Route />
 
 
