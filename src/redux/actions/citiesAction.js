@@ -66,9 +66,10 @@ const getCitiesAdmi = createAsyncThunk('getCitiesAdmi', async (dataUser) => {
     }
 })
 
-const deleteCitiesAdmi = createAsyncThunk('deleteCitiesAdmi', async (id) => {
+const deleteCitiesAdmi = createAsyncThunk('deleteCitiesAdmi', async ({id, token}) => {
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try {
-        const respuesta = await axios.delete(`${baseURL}api/cities/${id}`)
+        const respuesta = await axios.delete(`${baseURL}api/cities/${id}`, headers)
         return respuesta.data.data
     } catch (error) {
         return {
@@ -77,9 +78,10 @@ const deleteCitiesAdmi = createAsyncThunk('deleteCitiesAdmi', async (id) => {
     }
 })
 
-const updateCitiesAdmi = createAsyncThunk('updateCitiesAdmi', async (data) => {
+const updateCitiesAdmi = createAsyncThunk('updateCitiesAdmi', async ({data, token}) => {
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try {
-        const respuesta = await axios.put(`${baseURL}api/cities/${data.id}`, data.citie)
+        const respuesta = await axios.put(`${baseURL}api/cities/${data.id}`, data.citie, headers)
         return respuesta.data.data
     } catch (error) {
         return {
@@ -99,9 +101,10 @@ const getItinerariesUser = createAsyncThunk('getItinerariesAdmi', async (dataUse
     }
 })
 
-const deleteItinerariesUser = createAsyncThunk('deleteItinerariesAdmi', async (id) => {
+const deleteItinerariesUser = createAsyncThunk('deleteItinerariesAdmi', async ({id, token}) => {
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try {
-        const respuesta = await axios.delete(`${baseURL}api/itineraries/${id}`)
+        const respuesta = await axios.delete(`${baseURL}api/itineraries/${id}`, headers)
         return respuesta.data.data
     } catch (error) {
         return {
@@ -110,9 +113,10 @@ const deleteItinerariesUser = createAsyncThunk('deleteItinerariesAdmi', async (i
     }
 })
 
-const updateItinerariesUser = createAsyncThunk('updateItinerariesAdmi', async (data) => {
+const updateItinerariesUser = createAsyncThunk('updateItinerariesAdmi', async ({data, token}) => {
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try {
-        const respuesta = await axios.put(`${baseURL}api/itineraries/${data.id}`, data.itinerarie)
+        const respuesta = await axios.put(`${baseURL}api/itineraries/${data.id}`, data.itinerarie, headers)
         return respuesta.data.data
     } catch (error) {
         return {

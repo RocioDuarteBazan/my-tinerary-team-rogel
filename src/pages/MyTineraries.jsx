@@ -10,11 +10,12 @@ export default function MyTineraries() {
   const dispatch = useDispatch();
   const { userItineraries } = useSelector(store => store.citiesReducer);
   const { getItinerariesUser } = citiesAction
+  const { id } = useSelector(store => store.userReducer)
 
-  let idUser = "636e7a12b2ea2713548222bf"
+  
 
   useEffect(() => {
-    dispatch(getItinerariesUser(idUser))
+    dispatch(getItinerariesUser(id))
   }, [])
 
     
