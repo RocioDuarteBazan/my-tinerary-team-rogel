@@ -1,13 +1,14 @@
 import React from 'react';
 import './Navbar.css';
+import { Link as NavLink } from 'react-router-dom';
 
 function SubButton(props) {
 
-    let {nombre}= props
+    let {nombre, rute}= props
 
     return (
         <li className="menu__inside">
-            <a href="#" className="menu__link menu__link--inside">{nombre}</a>
+            <p className="menu__link menu__link--inside">{nombre}</p>
         </li>
     )
 }

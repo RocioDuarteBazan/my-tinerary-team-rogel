@@ -54,17 +54,17 @@ function Navbar() {
                         <img src="./img/menu.svg" className="menu__img" onClick={ocultarBoton} />
                         {mostrar && (
                             <div className='flex'>
-                                <ButtonNav name='Home' subname='Cities' subname2='Hotels' />
+                                <ButtonNav name='Home' subname='Cities' rute='/cities' subname2='Hotels' ruteDos='/hotels' />
                                 {!logged && (
                                     <>
-                                        <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
+                                        <ButtonNav name='Users' subname='Sign In' rute='/signin' subname2='Sign Up' ruteDos='/signup' />
                                         <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_man_usersearch_thesearch_theclient_2356.png" alt="logoUser" />
                                     </>
                                 )
                                 }
                                 {logged && (
                                     <>
-                                        <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                        <ButtonNav name='Activities' subname='Itineraries' rute='/mytineraries' subname2='Shows' ruteDos='/myshows' />
                                         <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
                                         <p className='texto-nav-user'>{name}</p>
                                         <NavLink to="/">
@@ -75,7 +75,8 @@ function Navbar() {
                                 }
                                 {logged && role === 'admi' && (
                                     <>
-                                        <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                        <ButtonNav name='Activities' subname='My Citys' rute='/mycitys' subname2='My Hoteles' ruteDos='/myHotels'/>
+                                        <ButtonNav name='Activities' subname='New City' rute='/newcity' subname2='New Hotel' ruteDos='/newhotel' />
                                         <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
                                         <p className='texto-nav-user'>{name}</p>
                                         <NavLink to="/">
@@ -87,10 +88,10 @@ function Navbar() {
                             </div>)}
                     </div>
                     <div className='menu__nohamburguer'>
-                        <ButtonNav name='Home' subname='Cities' subname2='Hotels' />
+                        <ButtonNav name='Home' subname='Cities'  rute='/cities' subname2='Hotels' ruteDos='/hotels' />
                         {!logged && (
                             <>
-                                <ButtonNav name='Users' subname='Sign In' subname2='Sign Up' />
+                                <ButtonNav name='Users' subname='Sign In' rute='/signin' subname2='Sign Up' ruteDos='/signup' />
                                 <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_man_usersearch_thesearch_theclient_2356.png" alt="logoUser" />
                             </>
                         )
@@ -99,7 +100,7 @@ function Navbar() {
                     <div className='menu__nohamburguer'>
                         {logged && (
                             <>
-                                <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                <ButtonNav name='Activities' subname='Itineraries' rute='/mytineraries' subname2='Shows' ruteDos='/myshows' />
                                 <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
                                 <p className='texto-nav-user'>{name}</p>
                                 <NavLink to="/">
@@ -110,7 +111,7 @@ function Navbar() {
                         }
                         {logged && role === 'admi' && (
                             <>
-                                <ButtonNav name='Activities' subname='Itineraries' subname2='Shows' />
+                                <ButtonNav name='Activities' subname='My Citys' rute='/mycitys' subname2='My Hoteles' ruteDos='/myHotels'/>
                                 <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
                                 <p className='texto-nav-user'>{name}</p>
                                 <NavLink to="/">
