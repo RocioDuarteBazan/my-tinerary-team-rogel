@@ -3,8 +3,8 @@ import { baseURL } from "../../url";
 import axios from "axios"
 
 const login = createAsyncThunk("login", async (datos) => {
-    let url = `${ baseURL }api/auth/sign-in`
-try {
+    let url = `${baseURL}api/auth/sign-in`
+    try {
         let user = await axios.post(url, datos)
         console.log(user);
         return {
@@ -58,9 +58,43 @@ const signOff = createAsyncThunk('logout', async (token) => {
     }
 });
 
+const updateMyProfile = createAsyncThunk("updateMyProfile", async (data) => {
+    try {
+        const response = await axios.patch(`${baseURL}api/auth/me/${data.id}`, data.user);
+        console.log(response)
+        return response.data.data;
+    }
+    catch (error) {
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+
+});
+
+const doUser = createAsyncThunk("doUser", async (id) => {
+    try {
+        let res = await axios.get(`${baseURL}api/auth/me/${id}`);
+        return {
+            success: true,
+            response: res.data.data,
+
+        };
+    } catch (error) {
+        console.log(error);
+        return {
+            success: false,
+            response: "An error has ocurred",
+        };
+    }
+});
+
 const userAction = {
     login,
     reEntry,
-    signOff
+    signOff,
+    updateMyProfile,
+    doUser
 }
 export default userAction

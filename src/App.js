@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import ProtectedRoute from "./components/ProtectedRoute";
 import userAction from "./redux/actions/userAction";
+import Profile from './pages/Profile';
 
 
 
@@ -28,12 +29,14 @@ function App() {
   let dispatch = useDispatch()
   let { reEntry } = userAction
   let token = JSON.parse(localStorage.getItem('token'))
-  
+
   useEffect(() => {
     if (token) {
       dispatch(reEntry(token.token.user))
     }
-  },[])
+  }, [])
+  // eslint-disable-next-line
+
 
 
   return (
@@ -47,19 +50,29 @@ function App() {
         <Route path="/cities/:id" element={<CitiesDetails />} />
         <Route path="/hotels/:id" element={<HotelDetails />} />
 
-        <Route path="/signup" element={ logged ? <Home/> : <SignUp />} />
-        <Route path="/signin" element={logged ? <Home/> : <SignIn />} />
-        
-        <Route element={<ProtectedRoute isAllowed={role === "admin"}/>} />
+        { logged && (
+          <Route element={<ProtectedRoute isAllowed={logged} reDirect="/" />}>
+            <Route path="/myprofile" element={<Profile />} />
+          </Route>
+        )}
+
+        <Route element={<ProtectedRoute isAllowed={role === "admin"} reDirect="/" />}></Route>
+
+        <Route path="/signup" element={logged ? <Home /> : <SignUp />} />
+        <Route path="/signin" element={logged ? <Home /> : <SignIn />} />
+
+        <Route element={<ProtectedRoute isAllowed={role === "admin"} />} />
         <Route path="/newcity" element={<NewCity />} />
         <Route path="/newhotel" element={<NewHotel />} />
         <Route path="/mycities" element={<MyCities />} />
         <Route path="/myhotels" element={<MyHotels />} />
 
-        <Route element={<ProtectedRoute isAllowed={role === "user"}/>} />
-          <Route path="/mytineraries" element={<MyTineraries />} />
-          <Route path="/myshows" element={<MyShows />} />
+        <Route element={<ProtectedRoute isAllowed={role === "user"} />} />
+        <Route element={<ProtectedRoute isAllowed={role === "user"} reDirect="/" />}></Route>
+        <Route path="/mytineraries" element={<MyTineraries />} />
+        <Route path="/myshows" element={<MyShows />} />
         <Route />
+
 
       </Routes>
     </Layout>
