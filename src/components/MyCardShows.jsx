@@ -1,6 +1,6 @@
 import React from 'react'
 import './MyCard.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
 import hotelsAction from '../redux/actions/hotelsAction';
 
@@ -8,6 +8,7 @@ export default function MyCard(props) {
     let { show } = props
     const dispatch = useDispatch();
     const { deleteShowUser, updateShowUser } = hotelsAction
+    const { token } = useSelector(store => store.userReducer)
 
     async function deleteUser() {
         try {
@@ -26,7 +27,7 @@ export default function MyCard(props) {
                         'Your file has been deleted.',
                         'success'
                     )
-                    dispatch(deleteShowUser(show._id))
+                    dispatch(deleteShowUser({id: show._id, token}))
                 }
             })
         } catch (error) {
@@ -80,7 +81,7 @@ export default function MyCard(props) {
                         data.shows.date = date
                     }
 
-                    dispatch(updateShowUser(data))
+                    dispatch(updateShowUser({data, token}))
                 }
             })
 

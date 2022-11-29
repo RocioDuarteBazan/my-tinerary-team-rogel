@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import Swal from 'sweetalert2'
 import hotelsAction from '../redux/actions/hotelsAction';
 
@@ -8,6 +8,7 @@ export default function HotelsCardsAdmin(props) {
     let { hotels, id } = props
     const dispatch = useDispatch();
     const { deleteHotelAdmi, updateHotelAdmi } = hotelsAction
+    const {token} = useSelector(store => store.userReducer)
 
     async function deleteAdmin() {
         try {
@@ -26,7 +27,7 @@ export default function HotelsCardsAdmin(props) {
                         'Your file has been deleted.',
                         'success'
                     )
-                    dispatch(deleteHotelAdmi(hotels._id))
+                    dispatch(deleteHotelAdmi({id: hotels._id, token}))
                     window.location.reload()
                 }
             })
@@ -91,7 +92,7 @@ export default function HotelsCardsAdmin(props) {
                         data.hotels.photo = hotels.photo
                     }
 
-                    dispatch(updateHotelAdmi(data))
+                    dispatch(updateHotelAdmi({data, token}))
                     window.location.reload()
                 }
             })

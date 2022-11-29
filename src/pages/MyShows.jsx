@@ -9,11 +9,10 @@ export default function MyShows() {
     const dispatch = useDispatch();
     const { userShows } = useSelector(store => store.hotelsReducer);
     const { getShowUser } = hotelsAction
-
-    let idUser = "636e7868b2ea2713548222b7"
+    const { id } = useSelector(store => store.userReducer)
 
     useEffect(() => {
-        dispatch(getShowUser(idUser))
+        dispatch(getShowUser(id))
     }, [])
 
 
