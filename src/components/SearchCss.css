@@ -1,0 +1,24 @@
+.input {
+    max-width: 190px;
+    height: 30px;
+    border: 2px solid transparent;
+    outline: none;
+    border-bottom: 2px solid #3f3f3f;
+    caret-color: #3f3f3f;
+    background-color: #ffffff;
+    padding: 5px;
+    transition: .5s linear;
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+.input:focus {
+    border: 2px solid #53c297;
+    caret-color: #53c297;
+    color: #53c297;
+    box-shadow: 4px 4px 10px #070707;
+}
+
+.input:focus::placeholder {
+    color: #53c297;
+}
