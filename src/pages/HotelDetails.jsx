@@ -30,7 +30,7 @@ export default function HotelDetails() {
       />
       <div className="p-2 flex column justify-center align-center">
         <Events className="p-2" id={hotels._id}></Events>
-        <button className='bottom-cards'>View Comments</button>
+        <button className='bottom-cards' >View Comments</button>
       </div>
 
     </>

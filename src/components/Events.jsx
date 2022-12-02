@@ -21,6 +21,7 @@ export default function Events() {
     <div className="flex j-center wrap ">
       {hotelsShow.map((item) => (
         <CardShow
+          idShow={item._id}
           key={item.id}
           name={item.name}
           photo={item.photo}
