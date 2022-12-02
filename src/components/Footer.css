@@ -3,13 +3,12 @@ footer{
     width: 100%;
     bottom: 0;
     left: 0;
-    background: #16123f;
+    background: #272727;
 }
 
 footer .content{
-    max-width: 1350px;
+    width: 100%;
     margin: auto;
-    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -27,19 +26,25 @@ footer .content p,a{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
+    font-size: 23px;
+    gap: 40px;
 }
 
 footer .content .box{
-    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transition: all 0.4s ease;
+    width: 50%;
 }
   
 footer .content .topic{
+    width: 100%;
     font-size: 22px;
     font-weight: 600;
-    color:#ffe26a;
-    margin-bottom: 16px;
+    color:#ce85e4;
+    margin-bottom: 12px;
     text-align: center;
 }
   
@@ -52,12 +57,14 @@ footer .content .lower .topic{
     margin: 24px 0 5px 0;
 }
   
-footer .content .lower i{
-    padding-right: 16px;
+footer .content .lower {
+    display: flex;
+    flex-direction: column;
+    gap:15px
 }
   
 footer .content .middle{
-    padding-top: 70px; 
+    padding-top: 30px; 
     display: flex;
     justify-content: center;
 }
@@ -67,8 +74,8 @@ footer .content .middle a{
 }
 
 .img-footer{
-    height: 180px;
-    width: 200px;
+    height: 120px;
+    width: 170px;
 }
   
 
@@ -88,20 +95,20 @@ footer .content .right input[type="submit"]{
     height: 42px;
     width: 100%;
     font-size: 18px;
-    color: #3a3a3a;
-    background: #75c9b7;
+    color: #727272;
+    background: #000000;
     outline: none;
     border-radius: 5px;
     letter-spacing: 1px;
     cursor: pointer;
     margin-top: 12px;
-    border: 2px solid #75c9b7;
+    border: 2px solid #ba73fc;
     transition: all 0.3s ease-in-out;
 }
   
 .content .right input[type="submit"]:hover{
     background: none;
-    color:  #ffe26a;
+    color:  #6ad0ffbd;
 }
   
 footer .content .media-icons a{
@@ -112,14 +119,10 @@ footer .content .media-icons a{
     text-align: center;
     line-height: 43px;
     border-radius: 5px;
-    border: 2px solid #424242;
     margin: 30px 5px 0 0;
     transition: all 0.3s ease;
 }
   
-.content .media-icons a:hover{
-    border-color: #ffe26a;
-}
 
 .media-icons{
     display: flex;
@@ -134,7 +137,7 @@ footer .bottom{
 }
   
 footer .bottom a{
-    color: #ffe26a;
+    color: #6adcffc2;
 }
   
 footer a{
@@ -142,7 +145,7 @@ footer a{
 }
   
 footer a:hover{
-    color: #ffe26a;
+    color: #6adcffc2;
 }
 
 

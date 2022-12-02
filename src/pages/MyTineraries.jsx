@@ -24,7 +24,7 @@ export default function MyTineraries() {
       <div id='container-check' className='flex justify-around w-100 '></div>
       <div className='flex wrap'>
         {userItineraries.length > 0 && (userItineraries.map((tinerary) => {
-          return <MyCardItineraries tinerary={tinerary} />
+          return <MyCardItineraries tinerary={tinerary} id={tinerary._id} />
         }))}
       </div>
     </div>
