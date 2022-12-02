@@ -1075,6 +1075,9 @@ code {
   object-fit: cover;
 }
 
+.pointer{
+  cursor: pointer;
+}
 
 .bg-img-2 {
   background-image: url();
