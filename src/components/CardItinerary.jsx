@@ -1,8 +1,10 @@
 import React from "react";
 import "./CardItinerary.css"
+import Reaction from "./Reaction";
+
 
 export default function CardItinerary(props) {
-  let { name, price, description, photo, duration } = props;
+  let { name, price, description, photo, duration, id } = props;
   return (
     <>
       <div className="divShow">
@@ -15,6 +17,9 @@ export default function CardItinerary(props) {
             <p>{description}</p>
             <p>Duration:{duration}</p>
             <p>Price: U$D{price}</p>
+          </div>
+          <div className="flex gap-1 cont-reactions">
+            <Reaction itineraryId={id}/>
           </div>
         </div>
       </div>
