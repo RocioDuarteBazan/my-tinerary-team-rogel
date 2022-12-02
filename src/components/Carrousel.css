@@ -1,35 +1,31 @@
 .container-carrousel{
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    
+    justify-content: center;
 }
 
 .container-img-carrousel{
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    margin: 30px;
-    gap: 25px;
+    justify-content: space-around;
+    margin: 20px;
 }
 
 .button-div{
-    width: 10%;
-    margin: 5px;
     display: flex;
     align-items: center;
 }
 
 .img-carrousel{
-    width: 270px;
-    height: 290px;
-    border-radius: 30px;
+    width: 600px;
+    height: 650px;
+    border-radius: 20px;
     background-size: cover;
 }
 
 .img-botton-carrousel{
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
 }
 
 .button-carrousel {
@@ -41,7 +37,7 @@
     border-radius: 20px;
     border: 1px solid transparent;
     color: #FFFFFF;
-    background-color: #07052cda;
+    background-color: transparent;
     font-size: 16px;
     letter-spacing: 1px;
     transition: all 0.15s linear;
@@ -55,10 +51,6 @@
         flex-wrap: wrap;
         justify-content: space-around;
         gap: 10px;
-    }
-
-    .button-div{
-        display: none;
     }
 
 }

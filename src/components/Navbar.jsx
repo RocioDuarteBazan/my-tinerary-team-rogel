@@ -58,14 +58,14 @@ function Navbar() {
                                 {!logged && (
                                     <>
                                         <ButtonNav name='Users' subname='Sign In' rute='/signin' subname2='Sign Up' ruteDos='/signup' />
-                                        <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_man_usersearch_thesearch_theclient_2356.png" alt="logoUser" />
+                                        <img className='icon-user' src="https://cdn.icon-icons.com/icons2/2074/PNG/512/account_group_team_user_icon_127141.png" alt="logoUser" />
                                     </>
                                 )
                                 }
                                 {logged && (
                                     <>
                                         <ButtonNav name='Activities' subname='Itineraries' rute='/mytineraries' subname2='Shows' ruteDos='/myshows' />
-                                        <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
+                                        <img className='icon-user' src="https://cdn.icon-icons.com/icons2/2556/PNG/512/profile_picture_user_icon_153075.png" alt="logoUser" />
                                         <p className='texto-nav-user'>{name}</p>
                                         <NavLink to="/">
                                             <LogOutBtn type={"text"} text={"Exit"} fx={logOut} ></LogOutBtn>
@@ -77,7 +77,7 @@ function Navbar() {
                                     <>
                                         <ButtonNav name='Activities' subname='My Citys' rute='/mycitys' subname2='My Hoteles' ruteDos='/myHotels'/>
                                         <ButtonNav name='Activities' subname='New City' rute='/newcity' subname2='New Hotel' ruteDos='/newhotel' />
-                                        <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
+                                        <img className='icon-user' src="https://cdn.icon-icons.com/icons2/2556/PNG/512/profile_picture_user_icon_153075.png" alt="logoUser" />
                                         <p className='texto-nav-user'>{name}</p>
                                         <NavLink to="/">
                                             <LogOutBtn type={"text"} text={"Exit"} fx={logOut} className='custom-btn btn-8' ></LogOutBtn>
@@ -92,7 +92,7 @@ function Navbar() {
                         {!logged && (
                             <>
                                 <ButtonNav name='Users' subname='Sign In' rute='/signin' subname2='Sign Up' ruteDos='/signup' />
-                                <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_man_usersearch_thesearch_theclient_2356.png" alt="logoUser" />
+                                <img className='icon-user' src="https://cdn.icon-icons.com/icons2/2074/PNG/512/account_group_team_user_icon_127141.png" alt="logoUser" />
                             </>
                         )
                         }
@@ -101,7 +101,7 @@ function Navbar() {
                         {logged && (
                             <>
                                 <ButtonNav name='Activities' subname='Itineraries' rute='/mytineraries' subname2='Shows' ruteDos='/myshows' />
-                                <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
+                                <img className='icon-user' src="https://cdn.icon-icons.com/icons2/2556/PNG/512/profile_picture_user_icon_153075.png" alt="logoUser" />
                                 <p className='texto-nav-user'>{name}</p>
                                 <NavLink to="/">
                                     <LogOutBtn type={"text"} text={"Exit"} fx={logOut} className='custom-btn btn-8' ></LogOutBtn>
@@ -112,7 +112,7 @@ function Navbar() {
                         {logged && role === 'admi' && (
                             <>
                                 <ButtonNav name='Activities' subname='My Citys' rute='/mycitys' subname2='My Hoteles' ruteDos='/myHotels'/>
-                                <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/business_application_addmale_useradd_insert_add_user_client_2312.png" alt="logoUser" />
+                                <img className='icon-user' src="https://cdn.icon-icons.com/icons2/2556/PNG/512/profile_picture_user_icon_153075.png" alt="logoUser" />
                                 <p className='texto-nav-user'>{name}</p>
                                 <NavLink to="/">
                                     <LogOutBtn type={"text"} text={"Exit"} fx={logOut} className='custom-btn btn-8' ></LogOutBtn>
