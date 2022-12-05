@@ -13,7 +13,7 @@ export default function Details(props) {
           <div className="contimg">
             <img src={img} alt="" />
           </div>
-          <div class="cardinfo">
+          <div className="cardinfo">
             <h1>{name}</h1>
             <h2>Continent: {continent}</h2>
             <h2>Population: {population}</h2>

@@ -19,7 +19,7 @@ export default function CardItinerary(props) {
             <p>Price: U$D{price}</p>
           </div>
           <div className="flex gap-1 cont-reactions">
-            <Reaction itineraryId={id}/>
+            <Reaction eventId={id} type="itineraryId"/>
           </div>
         </div>
       </div>

@@ -17,23 +17,40 @@ export default function NewReaction() {
     const iconBack = useRef()
     const itineraryId = useRef();
     const [itineraries, setItineraries] = useState([]);
+    const [shows, setShows] = useState([]);
     const { id } = useSelector(store => store.userReducer)
+    const allEvents = itineraries.concat(shows)
 
     useEffect(() => {
         axios.get(`${baseURL}api/itineraries`)
             .then((res) => setItineraries(res.data.data));
+
+        axios.get(`${baseURL}api/shows`)
+            .then((res) => setShows(res.data.data));
+
         // eslint-disable-next-line
     }, []);
 
+
     async function createReaction(event) {
         event.preventDefault()
+        let itinerary = itineraries.find(itinerary => itinerary._id === itineraryId.current.value )
+        let show= shows.find(show => show._id === itineraryId.current.value )
         let newtinerary = {
-            itineraryId: itineraryId.current.value,
             name: name.current.value,
             icon: icon.current.value,
             iconBack: iconBack.current.value,
             userId: [id],
         }
+
+        if (itinerary) {
+            newtinerary.itineraryId = itineraryId.current.value 
+        }
+        if (show) {
+            newtinerary.showId = itineraryId.current.value 
+        }
+        console.log(newtinerary);
+
         try {
 
             let response = await axios.post(`${baseURL}api/reactions/`, newtinerary)
@@ -77,8 +94,8 @@ export default function NewReaction() {
                             <form action="" method="get" ref={form}>
                                 <InputSignUp type='text' placeholder='name' refId={name} />
                                 <select ref={itineraryId} id="hotelId">
-                                    <option>Select the itinerary</option>
-                                    {itineraries.map((itineraries) => (<option key={itineraries._id} value={itineraries._id}> {itineraries.name}</option>))}
+                                    <option>Select the events</option>
+                                    {allEvents.map((event) => (<option key={event._id} value={event._id}> {event.name}</option>))}
                                 </select>
                                 <InputSignUp type='text' placeholder='Icon' refId={icon} />
                                 <InputSignUp type='text' placeholder='IconBack' refId={iconBack} />

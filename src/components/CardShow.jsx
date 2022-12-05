@@ -23,8 +23,7 @@ import Reaction from '../components/Reaction'
 } */
 
 export default function CardShow(props) {
-  let { name, price, description, photo, date, id } = props;
-  console.log(id)
+  let { name, price, description, photo, date, idShow } = props;
   return (
       <div className="card-event">
           <div className="card-header">
@@ -42,10 +41,10 @@ export default function CardShow(props) {
               </h5>
               <h5>Date: {date} </h5>
               <div className="flex gap-1 cont-reactions">
-                  <Reaction type='show' eventid={id} />
+                  <Reaction type='showId' eventId={idShow} />
               </div>
               <div className="input-comment">
-                  <CommentsCard eventId={id}></CommentsCard>
+                  <CommentsCard eventId={idShow}></CommentsCard>
               </div>
           </div>
       </div>
