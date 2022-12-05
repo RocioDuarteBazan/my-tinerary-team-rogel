@@ -1,13 +1,30 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from "react";
 import userActions from '../redux/actions/userAction';
 import Swal from 'sweetalert2';
+import reactionActions from "../redux/actions/reactionActions";
+import MyReactions from "./MyReactions";
 
 export default function Details() {
     const dispatch = useDispatch()
     const { updateMyProfile } = userActions;
-    let { myUser } = useSelector( store => store.userReducer);
+    let { myUser, token } = useSelector( store => store.userReducer);
+    let {allReactions} = useSelector (store => store.reactionReducer);
+    console.log(allReactions);
+    let [yesButton , setYesButton] = useState (false);
+    const [like, setLike] = useState(true)
+    const {getUserReactions,deleteReaction} = reactionActions
+    let id 
 
+    useEffect(() => {
+        id = myUser.id
+        dispatch(getUserReactions({id, token}));
+    }, [])
+
+    function readButton(){
+        setYesButton(!yesButton)
+    }
 
     async function updateUser() {
         try {
@@ -57,7 +74,31 @@ export default function Details() {
         }
     }
 
+    function destroyReactionUser(e) {
+        e.preventDefault()
+        Swal.fire({
+           title: 'Are you sure?',
+           text: "You won't be able to revert this!",
+           icon: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#3085d6',
+           cancelButtonColor: '#d33',
+           confirmButtonText: 'Yes, delete it!'
+        })
+           .then((result) => {
+              if (result.isConfirmed) {
+                  dispatch(deleteReaction({ id: e.target.name, token }))
+                 Swal.fire({
+                    title: 'Deleted!',
+                    text: "Your reaction has been deleted.",
+                    icon: 'success',
+                 })
+              }
+           })
+     }
+
     return (
+        <>
         <div className='container-card'>
             <div className="card">
                 <div className="imgbox">
@@ -70,8 +111,17 @@ export default function Details() {
                     <div>
                         <button className='bottom-cards' onClick={updateUser} >Update Profile</button>
                     </div>
+                    <div>
+                        <button className='bottom-cards' onClick={readButton} >My Reactions</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div>
+            {
+             allReactions.map(reaction => <MyReactions item = {reaction.showId || reaction.itineraryId} name={reaction.name} icon={reaction.icon} fx={destroyReactionUser} tgt={reaction._id}/>)
+            }
+        </div>
+        </>
     );
 }

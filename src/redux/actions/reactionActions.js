@@ -17,13 +17,13 @@ const getReaction = createAsyncThunk("getReaction", async ({eventId, type}) => {
     }
 });
 
-const getUserReactions = createAsyncThunk("getUserReactions", async (id, token) => {
+const getUserReactions = createAsyncThunk("getUserReactions", async ({id, token}) => {
     let headers = { headers: { Authorization: `Bearer ${token}` } };
     try{
     const response = await axios.get(`${baseURL}api/reactions?userId=${id}`, headers);
     return {
         success: true,
-        response: response.data.data,
+        response: response.data.response,
     };
     } catch(error){
         return {
@@ -49,8 +49,10 @@ const updateReaction = createAsyncThunk("updateReaction", async ( data ) => {
 
 const deleteReaction = createAsyncThunk("deleteReaction", async ( {id, token }) => {
     let headers = { headers: { Authorization: `Bearer ${token}` } };
+    console.log(id);
     try {
         const response = await axios.put(`${baseURL}api/reactions/${id}`, null, headers);
+        console.log(response);
         return response.data.response;
     }
     catch (error) {
