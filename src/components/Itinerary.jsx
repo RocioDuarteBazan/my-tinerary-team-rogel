@@ -31,7 +31,7 @@ export default function Itinerary() {
     <div className="flex j-center wrap ">
       {itineraries.map((item) => (
         <CardItinerary
-          key={item.id}
+          key={item._id}
           name={item.name}
           photo={item.photo[count]}
           description={item.description}
